@@ -3068,7 +3068,6 @@ var Boot = (function () {
             game.mainGroup = this.game.add.group();
             game.resizeManager = ResizeManager();
             ExchangeManager.initializeNetworkRules()
-            utils.log(ADD_VERSION)
 
             console.log("World variation - " + GPP_OPTION.VARIATION_WORLD)
             console.log("Animal variation - " + GPP_OPTION.VARIATION_ANIMAL)
