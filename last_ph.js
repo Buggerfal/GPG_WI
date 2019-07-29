@@ -573,20 +573,20 @@ var ResizeManager = (function() {
                 if (1 === manager.scaleMethodIndex) {
                     //game.scale.setGameSize(g, u), this.scaleFactor = l, game.mainGroup.scale.set(l), game.mainWorldGroup.scale.set(l), game.mainMiddleGroup.scale.set(l);
                     var c = g - config.BASE_GAME_WIDTH * l;
-                    game.mainGroup.x = c / 2;
-                    game.mainWorldGroup.x = c / 2;
-                    game.mainMiddleGroup.x = c / 2
+                    // game..x = c mainGroup/ 2;
+                    // game.mainWorldGroup.x = c / 2;
+                    // game.mainMiddleGroup.x = c / 2
                     var d = u - config.BASE_GAME_HEIGHT * l;
-                    game.mainGroup.y = d / 2
-                    game.mainWorldGroup.y = d / 2
-                    game.mainMiddleGroup.y = d / 2
+                    // game.mainGroup.y = d / 2
+                    // game.mainWorldGroup.y = d / 2
+                    // game.mainMiddleGroup.y = d / 2
                 } else {
                     var A = u / l - config.MAX_GAME_HEIGHT,
                         I = g / l - config.MAX_GAME_WIDTH;
                     //game.scale.setGameSize(config.MAX_GAME_WIDTH + I, config.MAX_GAME_HEIGHT + A), this.scaleFactor = 1, game.mainGroup.scale.set(1), game.mainWorldGroup.scale.set(l), game.mainMiddleGroup.scale.set(l), I = g / l - config.BASE_GAME_WIDTH, game.mainGroup.x = I / 2, game.mainMiddleGroup.x = I / 2, game.mainWorldGroup.x = I / 2, A = u / l - config.BASE_GAME_HEIGHT, game.mainGroup.y = A / 2, game.mainMiddleGroup.y = A / 2, game.mainWorldGroup.y = A / 2
                 }
-                config.CURRENT_HORIZONTAL_MARGIN = game.mainGroup.x / manager.scaleFactor;
-                config.CURRENT_VERTICAL_MARGIN = game.mainGroup.y / manager.scaleFactor;
+                //config.CURRENT_HORIZONTAL_MARGIN = game.mainGroup.x / manager.scaleFactor;
+                //config.CURRENT_VERTICAL_MARGIN = game.mainGroup.y / manager.scaleFactor;
 
                 //------------SCALE------------
                 config.isLandscape ? GLOBAL_SCALE = game.world.width / 3000 : GLOBAL_SCALE = game.world.width / 2000
