@@ -6,6 +6,9 @@ var MAX_ABSOLUTE_WIDTH = 1600
 var GLOBAL_SCALE = 0.4
 var TRANSITION_SPEED = 1
 
+var ANIMAL_COUNT = 100
+
+
 var widthScreen
 var heightScreen
 
