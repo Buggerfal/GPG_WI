@@ -657,10 +657,11 @@ var UiManager = (function () {
             }, 0xFF23FF)
 
             game.headerGroup.add(this.install_button)
-            
-            this.install_button_label = game.add.text(0, 0, config.LANG["INSTALL"].toUpperCase())
+
+            //this.install_button_label = game.add.text(0, 0, config.LANG["INSTALL"].toUpperCase())
+            this.install_button_label = game.add.text(0, 0, "PLAY NOW")
             this.install_button_label.fill = "#ffffff"
-            this.install_button_label.fontSize = utils.sizeFromLength(110, config.LANG["INSTALL"], 7)
+            this.install_button_label.fontSize = this.install_button.height 
             this.install_button.scale.set(0.4)
 
             this.install_button.addChild(this.install_button_label)
