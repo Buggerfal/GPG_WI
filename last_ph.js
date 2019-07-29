@@ -3192,7 +3192,7 @@ var Game = (function () {
             game.isInputAllowed = false
             config.isDebug && (game.time.advancedTiming = true)
             game.isInited = true
-            ExchangeManager.initializeNetworkRulesOnCreate()
+            ExchangeManager.initializeNetworkRulesOnRender()
             game.resizeManager.forceResize()
         },
 
