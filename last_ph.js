@@ -658,13 +658,12 @@ var UiManager = (function () {
 
             game.headerGroup.add(this.install_button)
 
-            //this.install_button_label = game.add.text(0, 0, config.LANG["INSTALL"].toUpperCase())
-            this.install_button_label = game.add.text(0, 0, "PLAY NOW")
+            this.install_button_label = game.add.text(0, 0, config.LANG["PLAY_NOW"].toUpperCase())
             this.install_button_label.fill = "#ffffff"
             this.install_button_label.fontSize = this.install_button.height 
-            this.install_button.scale.set(0.4)
-
+            this.install_button_label.anchor.setTo(0.5, 0.45)
             this.install_button.addChild(this.install_button_label)
+
             utils.centerGameObjects([this.install_button, this.install_button_label])
 
             this.install_button.inputEnabled = true
@@ -3192,7 +3191,7 @@ var Game = (function () {
             game.isInputAllowed = false
             config.isDebug && (game.time.advancedTiming = true)
             game.isInited = true
-            ExchangeManager.initializeNetworkRulesOnCreate()
+            ExchangeManager.initializeNetworkRulesOnRender()
             
             game.resizeManager.forceResize()
         },
