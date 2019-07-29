@@ -3064,7 +3064,7 @@ var Boot = (function () {
             this.scale.pageAlignHorizontally = true;
             game.c = config;
             game.utils.findIndexPolyfill();
-            config = utils.mixin(config, ADD_OPTION)
+            config = utils.mixin(config, GPP_OPTION);
             game.mainGroup = this.game.add.group();
             game.resizeManager = ResizeManager();
             ExchangeManager.initializeNetworkRules()
