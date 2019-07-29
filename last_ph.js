@@ -719,7 +719,7 @@ var UiManager = (function () {
             //----progress percentage text
             var text = "0%"
             var textAchorX
-            if (ADD_NETWORK == "ironsource" || ADD_NETWORK == "tapjoy") {
+            if (GPP_NETWORK == "ironsource" || GPP_NETWORK == "tapjoy") {
                 textAchorX = 0.5
             } else {
                 textAchorX = 1
@@ -1360,7 +1360,7 @@ var UiManager = (function () {
 
             this.finishBackground.x = game.width / 2
 
-            if (ADD_NETWORK == "ironsource" || ADD_NETWORK == "tapjoy") {
+            if (GPP_NETWORK == "ironsource" || GPP_NETWORK == "tapjoy") {
 
                 if (!config.isLandscape) {
 
