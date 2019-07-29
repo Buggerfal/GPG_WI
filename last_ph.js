@@ -591,7 +591,7 @@ var ResizeManager = (function() {
                 //------------SCALE------------
                 config.isLandscape ? GLOBAL_SCALE = game.world.width / 3000 : GLOBAL_SCALE = game.world.width / 2000
 
-                if (game.world.height / game.world.width < 1.85 && !config.isLandscape && VARIATION_MECHANIC == "B") {
+                if (game.world.height / game.world.width < 1.85 && !config.isLandscape && GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                     GLOBAL_SCALE = game.world.height / 3700
 
                 } else if (game.world.height / game.world.width < 1.53 && !config.isLandscape) {
@@ -719,7 +719,7 @@ var UiManager = (function () {
             } else {
                 textAchorX = 1
             }
-            if (VARIATION_MECHANIC == "B") text = "0$"
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") text = "0$"
             this.progress_text = game.add.text(0, 0, text, 64)
             this.progress_text.anchor.set(textAchorX, 0)
             this.progress_text.font = 'Arial'
@@ -729,7 +729,7 @@ var UiManager = (function () {
 
             var animalText
 
-            switch (VARIATION_ANIMAL) {
+            switch (GPP_OPTION.VARIATION_ANIMAL) {
                 case 'A':
                     animalText = 'SHEEP'
                     break
@@ -791,7 +791,7 @@ var UiManager = (function () {
             this.finishBackground.addChild(this.finishSheep)
 
             var levelText = "Level 3\ncomplete"
-            if (VARIATION_MECHANIC == "B") {
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                 levelText = "Level\ncomplete"
             }
 
@@ -1392,7 +1392,7 @@ var UiManager = (function () {
 
             }
 
-            if (VARIATION_MECHANIC == "A" || VARIATION_MECHANIC == "C") {
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "A" || GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "C") {
                 progressOffset = this.progress_bar_fill_grey.width / ANIMAL_COUNT
             } else {
                 progressOffset = this.progress_bar_fill_grey.width / maxMoney
@@ -1400,7 +1400,7 @@ var UiManager = (function () {
 
             this.finishLevelText.x = 0
 
-            if (VARIATION_MECHANIC == 'B') this.makeFooter()
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == 'B') this.makeFooter()
 
             this.popupResize()
 
@@ -1637,7 +1637,7 @@ var WorldManager = (function () {
 
         init: function () {
 
-            if (VARIATION_MECHANIC == "B") ANIMAL_COUNT = 5
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") ANIMAL_COUNT = 5
 
             game.worldGroup = game.add.group(game.mainGroup)
 
@@ -1766,7 +1766,7 @@ var WorldManager = (function () {
 
             if (!config.isLandscape) {
 
-                if (VARIATION_MECHANIC == "B") {
+                if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                     x = centerX - 200 * GLOBAL_SCALE / 2
                     y = centerY + centerY / 2.5
                     width = 200 * GLOBAL_SCALE
@@ -1785,7 +1785,7 @@ var WorldManager = (function () {
 
             } else {
 
-                if (VARIATION_MECHANIC == "B") {
+                if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                     x = centerX - 200 * GLOBAL_SCALE / 2
                     y = centerY + centerY / 2.5
                     width = 200 * GLOBAL_SCALE
@@ -1821,7 +1821,7 @@ var WorldManager = (function () {
             var variationLocal
 
             if (VARIATION != null) variationLocal = VARIATION
-            else variationLocal = VARIATION_WORLD
+            else variationLocal = GPP_OPTION.VARIATION_WORLD
 
             if (variationLocal == "A") {
 
@@ -1869,12 +1869,12 @@ var WorldManager = (function () {
 
             this.makeVariations()
 
-            if (VARIATION_ANIMAL == "A") animalSprite = "sheep"
-            else if (VARIATION_ANIMAL == "B") animalSprite = "mammoth"
-            else if (VARIATION_ANIMAL == "C") animalSprite = "rabbit"
-            else if (VARIATION_ANIMAL == "D") animalSprite = "lama"
+            if (GPP_OPTION.VARIATION_ANIMAL == "A") animalSprite = "sheep"
+            else if (GPP_OPTION.VARIATION_ANIMAL == "B") animalSprite = "mammoth"
+            else if (GPP_OPTION.VARIATION_ANIMAL == "C") animalSprite = "rabbit"
+            else if (GPP_OPTION.VARIATION_ANIMAL == "D") animalSprite = "lama"
 
-            if (VARIATION_MECHANIC == "B") {
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                 this.bottomFarm = game.add.sprite(0, 0, houseBottom)
                 this.bottomFarm.scale.set(GLOBAL_SCALE * 3)
                 this.bottomFarm.anchor.set(0.5)
@@ -1892,7 +1892,7 @@ var WorldManager = (function () {
 
             for (var i = 0; i < 3; i++) {
 
-                if (VARIATION_MECHANIC == "C") {
+                if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "C") {
                     if (i == 0) VARIATION_TEMP = "A"
                     else if (i == 1) VARIATION_TEMP = "B"
                     else if (i == 2) VARIATION_TEMP = "C"
@@ -1902,7 +1902,7 @@ var WorldManager = (function () {
                 BACKGROUNDS.push(game.add.sprite(0, 0, background))
                 BACKGROUNDS.push(game.add.sprite(0, 0, backgroundLand))
 
-                if (VARIATION_WORLD == "A") {
+                if (GPP_OPTION.VARIATION_WORLD == "A") {
                     var ground1 = game.add.sprite(0, 0, 'greenGround1')
                     var ground2 = game.add.sprite(0, 0, 'greenGround2')
 
@@ -1926,9 +1926,9 @@ var WorldManager = (function () {
                 var field = game.add.sprite(0, 200, 'field')
 
 
-                if (VARIATION_MECHANIC == "C") VARIATION_TEMP == "B"
+                if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP == "B"
 
-                if ((VARIATION_WORLD == "B" || VARIATION_TEMP == "B") && VARIATION_MECHANIC != "B") {
+                if ((GPP_OPTION.VARIATION_WORLD == "B" || VARIATION_TEMP == "B") && GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC != "B") {
                     var riverLeft = game.add.sprite(0, 0, 'whiteRiverLeft')
                     var riverRight = game.add.sprite(0, 0, 'whiteRiverRight')
                     riverLeft.anchor.set(1, 0.5)
@@ -1953,9 +1953,9 @@ var WorldManager = (function () {
                 farm.scale.set(GLOBAL_SCALE)
                 farm.anchor.set(0.5)
 
-                if (VARIATION_MECHANIC != "B") {
+                if (GPP_OPTION.VARIATION_MECHANIC != "B") {
                     for (var j = 0; j < 4; j++) {
-                        if (VARIATION_WORLD == "B") FENCES_2.push(game.add.sprite(0, 0, "whiteDoorClose"))
+                        if (GPP_OPTION.VARIATION_WORLD == "B") FENCES_2.push(game.add.sprite(0, 0, "whiteDoorClose"))
                         else FENCES_2.push(game.add.sprite(0, 0, fence))
                     }
                     if (i > 0) {
@@ -1973,12 +1973,12 @@ var WorldManager = (function () {
             }
 
 
-            if (VARIATION_WORLD != "B") {
-                if (VARIATION_MECHANIC != "B") this.createTrees()
-                else if (VARIATION_MECHANIC == "B") this.createTreesIdle()
+            if (GPP_OPTION.VARIATION_WORLD != "B") {
+                if (GPP_OPTION.VARIATION_MECHANIC != "B") this.createTrees()
+                else if (GPP_OPTION.VARIATION_MECHANIC == "B") this.createTreesIdle()
             }
 
-            if (VARIATION_MECHANIC == "B") {
+            if (GPP_OPTION.VARIATION_MECHANIC == "B") {
                 this.panel = game.add.sprite(0, 0, farmPanel)
                 FARMS[0].addChild(this.panel)
                 this.panel.anchor.set(0.5, 1)
@@ -2130,7 +2130,7 @@ var WorldManager = (function () {
                 for (var j = arrLength; j < arrLength + 3; j++) {
                     n++
 
-                    if (VARIATION_MECHANIC == "C") {
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") {
                         if (n == 1) {
                             VARIATION_TEMP = "A"
                             this.makeVariations(VARIATION_TEMP)
@@ -2153,7 +2153,7 @@ var WorldManager = (function () {
                     FENCES[j].scale.y = scale * lineLength / 164
                     FENCES[j].anchor.set(0.5)
 
-                    if (i == 6 && VARIATION_WORLD != "A") FENCES[j].angle = angleDeg + 90 + 1
+                    if (i == 6 && GPP_OPTION.VARIATION_WORLD != "A") FENCES[j].angle = angleDeg + 90 + 1
                     else FENCES[j].angle = angleDeg - 90 + 1
 
                     game['levelGroup' + n].add(FENCES[j])
@@ -2252,7 +2252,7 @@ var WorldManager = (function () {
                 for (var j = arrLength; j < arrLength + 3; j++) {
                     n++
 
-                    if (VARIATION_MECHANIC == "C") {
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") {
                         if (n == 1) {
                             VARIATION_TEMP = "A"
                             this.makeVariations(VARIATION_TEMP)
@@ -2413,7 +2413,7 @@ var WorldManager = (function () {
             var maxTrees = 21
             var maxLandTrees = 21
 
-            if (VARIATION_MECHANIC == "C") {
+            if (GPP_OPTION.VARIATION_MECHANIC == "C") {
                 offsetY = -20 / GLOBAL_SCALE
                 maxTrees = 15
                 maxLandTrees = 15
@@ -2425,17 +2425,17 @@ var WorldManager = (function () {
 
                 if (j < maxTrees / 3) {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
                     this.makeVariations(VARIATION_TEMP)
 
                 } else if (j < maxTrees - maxTrees / 3) {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "B"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "B"
                     this.makeVariations(VARIATION_TEMP)
 
                 } else {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "C"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "C"
                     this.makeVariations(VARIATION_TEMP)
                 }
 
@@ -2477,7 +2477,7 @@ var WorldManager = (function () {
             var offsetX
 
 
-            if (VARIATION_MECHANIC == "C") {
+            if (GPP_OPTION.VARIATION_MECHANIC == "C") {
                 offsetY = 100
             }
 
@@ -2489,17 +2489,17 @@ var WorldManager = (function () {
 
                 if (j < maxLandTrees / 3) {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
                     this.makeVariations(VARIATION_TEMP)
 
                 } else if (j < maxLandTrees - maxLandTrees / 3) {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "B"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "B"
                     this.makeVariations(VARIATION_TEMP)
 
                 } else {
 
-                    if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "C"
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "C"
                     this.makeVariations(VARIATION_TEMP)
                 }
 
@@ -2556,7 +2556,7 @@ var WorldManager = (function () {
             var treeX = -200 * GLOBAL_SCALE
 
             for (var j = 0; j < 15; j++) {
-                if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
+                if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
                 this.makeVariations(VARIATION_TEMP)
 
                 TREES_3.push(game.add.sprite(0, 0, trees))
@@ -2613,7 +2613,7 @@ var WorldManager = (function () {
             var maxLandTrees = 21
 
 
-            if (VARIATION_MECHANIC == "C") {
+            if (GPP_OPTION.VARIATION_MECHANIC == "C") {
                 offsetY = 780 * GLOBAL_SCALE
                 interval = 180 * GLOBAL_SCALE
                 maxTrees = 15
@@ -2662,7 +2662,7 @@ var WorldManager = (function () {
                 TREES_4_LAND[i].scale.set(GLOBAL_SCALE * 0.8)
 
                 if (i === maxLandTrees / 3 - 1 || i === maxLandTrees - maxLandTrees / 3 - 1) {
-                    if (VARIATION_MECHANIC == "C") offsetY = offsetY * GLOBAL_SCALE
+                    if (GPP_OPTION.VARIATION_MECHANIC == "C") offsetY = offsetY * GLOBAL_SCALE
                     treeY = -1700 * GLOBAL_SCALE + offsetY
                 }
             }
@@ -2695,7 +2695,7 @@ var WorldManager = (function () {
 
             for (var j = 0; j < 15; j++) {
 
-                if (VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
+                if (GPP_OPTION.VARIATION_MECHANIC == "C") VARIATION_TEMP = "A"
                 var randX = Math.floor(Math.random() * 50)
                 TREES_3[j].x = -randX * GLOBAL_SCALE + treeX
 
@@ -2797,20 +2797,20 @@ var WorldManager = (function () {
                 game.worldManager.puddle.body.kinematic = true
             }
 
-            if (VARIATION_WORLD != "B") {
-                if (VARIATION_MECHANIC != "B") {
+            if (GPP_OPTION.VARIATION_WORLD != "B") {
+                if (GPP_OPTION.VARIATION_MECHANIC != "B") {
                     this.repositionTrees()
-                } else if (VARIATION_MECHANIC == "B") {
+                } else if (GPP_OPTION.VARIATION_MECHANIC == "B") {
                     this.repositionTreesIdle()
                 }
             }
 
-            if (VARIATION_MECHANIC == "A" || VARIATION_MECHANIC == "C") {
+            if (GPP_OPTION.VARIATION_MECHANIC == "A" || GPP_OPTION.VARIATION_MECHANIC == "C") {
 
                 this.createUpperBounds()
                 this.createLowerBounds()
 
-            } else if (VARIATION_MECHANIC == "B") {
+            } else if (GPP_OPTION.VARIATION_MECHANIC == "B") {
 
                 if (!config.isLandscape) {
                     var x = (FENCEDOTS_1[4].x + FENCEDOTS_1[5].x) / 2 * GLOBAL_SCALE + centerX
@@ -2894,7 +2894,7 @@ var LevelManager = (function () {
             if (GROUNDS.length != 0) {
                 game.backgroundGroup1.bringToTop(GROUNDS[0])
                 game.backgroundGroup1.bringToTop(GROUNDS[1])
-                if (VARIATION_MECHANIC != "C") {
+                if (GPP_OPTION.VARIATION_MECHANIC != "C") {
                     game.backgroundGroup2.bringToTop(GROUNDS[2])
                     game.backgroundGroup2.bringToTop(GROUNDS[3])
                     game.backgroundGroup3.bringToTop(GROUNDS[4])
@@ -3070,9 +3070,9 @@ var Boot = (function () {
             ExchangeManager.initializeNetworkRules()
             utils.log(ADD_VERSION)
 
-            console.log("World variation - " + VARIATION_WORLD)
-            console.log("Animal variation - " + VARIATION_ANIMAL)
-            console.log("Mechanic variation - " + VARIATION_MECHANIC)
+            console.log("World variation - " + GPP_OPTION.VARIATION_WORLD)
+            console.log("Animal variation - " + GPP_OPTION.VARIATION_ANIMAL)
+            console.log("Mechanic variation - " + GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC)
 
             var widthScreen = window.screen.availWidth
             var heightScreen = window.screen.availHeight
@@ -3199,7 +3199,7 @@ var Game = (function () {
 
             if (allInHouse) {
 
-                if (VARIATION_MECHANIC != "B") {
+                if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC != "B") {
                     game.uiManager.setZeroProgress()
                     game.worldManager.destroyBounds()
                     this.animalRush()
@@ -3209,7 +3209,7 @@ var Game = (function () {
                         game.worldManager.createAnimals()
                     }, this);
 
-                } else if (VARIATION_MECHANIC == "B") {
+                } else if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") {
                     canCatch = true
                     game.worldManager.createAnimals()
                     bigSheepCostIndex = 0
@@ -3218,12 +3218,12 @@ var Game = (function () {
                 allInHouse = false
             }
 
-            if (VARIATION_MECHANIC == "B") this.checkTruckPosition()
+            if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") this.checkTruckPosition()
 
 
             //----goes to the next level----
 
-            if (!canCatch && VARIATION_MECHANIC != "B") {
+            if (!canCatch && GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC != "B") {
 
                 if (currentLevel == 1) {
                     //distance = 300
@@ -3317,8 +3317,8 @@ var Game = (function () {
 
                         game.uiManager.animateFarm()
 
-                        if (VARIATION_MECHANIC != "B") catchCasual()
-                        else if (VARIATION_MECHANIC == "B") catchIdle()
+                        if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC != "B") catchCasual()
+                        else if (GPP_OPTION.GPP_OPTION.VARIATION_MECHANIC == "B") catchIdle()
                     }
 
                     if (ANIMALS.length === 0) {
@@ -3422,7 +3422,7 @@ var Game = (function () {
             })
         },
 
-        // Is used only in VARIATION_MECHANIC "B"
+        // Is used only in GPP_OPTION.VARIATION_MECHANIC "B"
         checkTruckPosition: function () {
             if ((game.worldManager.truck.x > game.world.centerX && game.worldManager.truck.x < game.width - 400 * GLOBAL_SCALE) && canCollectWool) {
                 game.worldManager.woolUnitsText.setText("0")
