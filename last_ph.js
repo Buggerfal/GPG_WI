@@ -3184,6 +3184,60 @@ var Game = (function () {
     };
     state.prototype = {
         init: function () {
+            
+            mediumCursorSize = 0
+            smallCursorSize = 0
+
+            allInHouse = false
+            canCatch = true
+            level2BodyDestroyed = false
+            currentLevel = 1
+
+            distance = 350
+            distancePointer = 0
+            speed = 0
+            fastSpeed = 0
+            farmDistance = 0
+            cursorDistance = 0
+            transparancyDistance = 0
+            animalAcceleration = 0
+            animalAccelerationLand = 0
+
+            levelY = 0
+
+            money = 0
+            maxMoney = 5000
+
+            upgradeCostArray = [50, 100, 200, 300, 500, 800, 1300, 2100, 3400, 5000]
+            spawnRateCostIndex = 0
+            woolValueCostIndex = 0
+            woolQuantityCostIndex = 0
+            bigSheepCostIndex = 0
+            trucksSpeedCostIndex = 0
+
+            spawnRateNumber = 50
+            woolValueNumber = 10
+            woolQuantityNumber = 25
+            bigSheepNumber = 0.7
+            trucksSpeedNumber = 5000
+            woolUnits = 0
+            woolOnTruck = 0
+
+            canCollectMoney = true
+            canCollectWool = true
+
+            stop = false
+            radius = 0
+            angleDeg = 0
+            canCollide = true
+            xRing = 0
+            yRing = 0
+            xCenter = 0
+            yCenter = 0
+            angleRad = 0
+
+            stepCounter = 0
+
             this.isInited = false;
             (config.mainState = this).stage.backgroundColor = "#1F1F1F";
             game.input.maxPointers = 1;
