@@ -586,7 +586,7 @@ var ResizeManager = (function() {
                 } else {
                     var A = u / l - config.MAX_GAME_HEIGHT,
                         I = g / l - config.MAX_GAME_WIDTH;
-                    //game.scale.setGameSize(config.MAX_GAME_WIDTH + I, config.MAX_GAME_HEIGHT + A), this.scaleFactor = 1, game.mainGroup.scale.set(1), game.mainWorldGroup.scale.set(l), game.mainMiddleGroup.scale.set(l), I = g / l - config.BASE_GAME_WIDTH, game.mainGroup.x = I / 2, game.mainMiddleGroup.x = I / 2, game.mainWorldGroup.x = I / 2, A = u / l - config.BASE_GAME_HEIGHT, game.mainGroup.y = A / 2, game.mainMiddleGroup.y = A / 2, game.mainWorldGroup.y = A / 2
+                    game.scale.setGameSize(config.MAX_GAME_WIDTH + I, config.MAX_GAME_HEIGHT + A), this.scaleFactor = 1, game.mainGroup.scale.set(1), game.mainWorldGroup.scale.set(l), game.mainMiddleGroup.scale.set(l), I = g / l - config.BASE_GAME_WIDTH, game.mainGroup.x = I / 2, game.mainMiddleGroup.x = I / 2, game.mainWorldGroup.x = I / 2, A = u / l - config.BASE_GAME_HEIGHT, game.mainGroup.y = A / 2, game.mainMiddleGroup.y = A / 2, game.mainWorldGroup.y = A / 2
                 }
                 //config.CURRENT_HORIZONTAL_MARGIN = game.mainGroup.x / manager.scaleFactor;
                 //config.CURRENT_VERTICAL_MARGIN = game.mainGroup.y / manager.scaleFactor;
@@ -660,7 +660,7 @@ var UiManager = (function () {
 
             this.install_button_label = game.add.text(0, 0, config.LANG["PLAY_NOW"].toUpperCase())
             this.install_button_label.fill = "#ffffff"
-            this.install_button_label.fontSize = this.install_button.height 
+            this.install_button_label.fontSize = utils.sizeFromLength(110, config.LANG["INSTALL"], 7)
             this.install_button_label.anchor.setTo(0.5, 0.45)
             this.install_button.addChild(this.install_button_label)
 
