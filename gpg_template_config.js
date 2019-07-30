@@ -68,7 +68,7 @@ function applyConfigAndRestart() {
 
     e = document.getElementById("mechanic");
     var mechanic_ch = Number(e.options[e.selectedIndex].value || 'A');
-    console.log(mechanic_ch)
+    console.log(animal_ch + " " + mechanic_ch)
     var mechanic_str = e.options[e.selectedIndex].text || 'Level';
 
 
