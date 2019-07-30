@@ -6,7 +6,7 @@ var MAX_ABSOLUTE_WIDTH = 1600
 var GLOBAL_SCALE = 0.4
 var TRANSITION_SPEED = 1
 
-var ANIMAL_COUNT = 100
+var ANIMAL_COUNT
 
 
 var widthScreen
@@ -1663,7 +1663,11 @@ var WorldManager = (function () {
             GROUNDS = []
             RIVERS = []
 
+            VARIATION_TEMP = null
+
+
             if (GPP_OPTION.VARIATION_MECHANIC == "B") ANIMAL_COUNT = 5
+            else ANIMAL_COUNT = 100;
 
             game.worldGroup = game.add.group(game.mainGroup)
 
