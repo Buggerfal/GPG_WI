@@ -1,6 +1,6 @@
 var ITMUSTBEIGNORED;
 
-GPG_TEMPLATE_DEFAULT.GPP_TITLE_TEMPLATE = "{EXCH}_{PLAYABLE}_{VARIANT}_{WORLD}_{CLIMBER}_{DEV_VERSION}"
+GPG_TEMPLATE_DEFAULT.GPP_TITLE_TEMPLATE = "{EXCH}_{PLAYABLE}_{WORLD}_{ANIMAL}_{MECHANIC}_{DEV_VERSION}"
 document.getElementById("title_temp").value = GPG_TEMPLATE_DEFAULT.GPP_TITLE_TEMPLATE
 
 function imageChanges(label, msg) {
@@ -203,17 +203,17 @@ generatePlayable = function(option) {
     var e = document.getElementById("world_pl");
     var world_ch = e.options[e.selectedIndex].value || 'A';
     var world_str = e.options[e.selectedIndex].text || 'Green';
-    world_str = version_str.split(' ').join('_')
+    world_str = world_str.split(' ').join('_')
 
     e = document.getElementById("animal_pl");
     var animal_ch = e.options[e.selectedIndex].value || 'A';
     var animal_str = e.options[e.selectedIndex].text || 'Sheep';
-    animal_str = background_str.split(' ').join('_')
+    animal_str = animal_str.split(' ').join('_')
 
     e = document.getElementById("mechanic");
     var mechanic_ch = e.options[e.selectedIndex].value || 'A';
     var mechanic_str = e.options[e.selectedIndex].text || 'Level';
-    mechanic_str = background_str.split(' ').join('_')
+    mechanic_str = mechanic_str.split(' ').join('_')
 
 
     dc = dc.replace('{VARIATION_WORLD}', world_ch)
@@ -259,9 +259,9 @@ generatePlayable = function(option) {
     }
     title_template_str = title_template_str.replace('{PLAYABLE}', GPP_ID_TITLE)
 
-    title_template_str = title_template_str.replace('{VARIANT}', version_str)
-    title_template_str = title_template_str.replace('{WORLD}', background_str)
-    title_template_str = title_template_str.replace('{CLIMBER}', climber_str)
+    title_template_str = title_template_str.replace('{WORLD}', world_str)
+    title_template_str = title_template_str.replace('{ANIMAL}', animal_str)
+    title_template_str = title_template_str.replace('{MECHANIC}', mechanic_str)
 
     if (typeof DEV_VERSION !== "undefined") 
         title_template_str = title_template_str.replace('{DEV_VERSION}', DEV_VERSION)
