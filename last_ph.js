@@ -1527,18 +1527,7 @@ var UiManager = (function () {
     return manager
 })
 
-
-var FENCEDOTS_1 = []
-var FENCEDOTS_1_LAND = []
-var FENCEDOTS_2 = []
-
-var FENCES = []
-var FENCES_2 = []
-var FENCES_3 = []
-
-
 var OBSTACLEDOTS = []
-
 
 var OBSTACLE_1 = []
 var OBSTACLE_2 = []
@@ -1579,10 +1568,6 @@ var catchPoint = 0
 var centerX
 var centerY
 
-var absoluteHeight = 0
-var absoluteWidth = 0
-
-
 var background, backgroundLand
 var fence, fenceBottom
 var house, houseBottom
@@ -1600,36 +1585,36 @@ var WorldManager = (function () {
     var manager = {
 
         createFenceArray: function () {
-            FENCEDOTS_1.push({ x: this.field.x - 120, y: this.field.y })
+            this.FENCEDOTS_1.push({ x: this.field.x - 120, y: this.field.y })
 
-            FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height / 3 })
-            FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height / 1.7 })
-            FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height })
-            FENCEDOTS_1.push({ x: this.field.x - 180, y: this.field.y + this.field.height })
-            FENCEDOTS_1.push({ x: this.field.x + 180, y: this.field.y + this.field.height })
-            FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height })
-            FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height / 1.7 })
-            FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height / 3 })
+            this.FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height / 3 })
+            this.FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height / 1.7 })
+            this.FENCEDOTS_1.push({ x: this.field.x - this.field.width / 2 + 30, y: this.field.y + this.field.height })
+            this.FENCEDOTS_1.push({ x: this.field.x - 180, y: this.field.y + this.field.height })
+            this.FENCEDOTS_1.push({ x: this.field.x + 180, y: this.field.y + this.field.height })
+            this.FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height })
+            this.FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height / 1.7 })
+            this.FENCEDOTS_1.push({ x: this.field.x + this.field.width / 2 - 30, y: this.field.y + this.field.height / 3 })
 
-            FENCEDOTS_1.push({ x: this.field.x + 120, y: this.field.y })
+            this.FENCEDOTS_1.push({ x: this.field.x + 120, y: this.field.y })
 
-            FENCEDOTS_1_LAND.push({ x: this.field.x - 170, y: this.field.y })
-            FENCEDOTS_1_LAND.push({ x: this.field.x - 170, y: this.field.y + this.field.height / 8 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x - 1450, y: this.field.y + this.field.height / 8 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x - 1450, y: this.field.y + this.field.height / 1.6 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x - 180, y: this.field.y + this.field.height / 1.6 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x + 180, y: this.field.y + this.field.height / 1.6 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x + 1450, y: this.field.y + this.field.height / 1.6 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x + 1450, y: this.field.y + this.field.height / 8 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x + 170, y: this.field.y + this.field.height / 8 })
-            FENCEDOTS_1_LAND.push({ x: this.field.x + 170, y: this.field.y })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x - 170, y: this.field.y })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x - 170, y: this.field.y + this.field.height / 8 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x - 1450, y: this.field.y + this.field.height / 8 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x - 1450, y: this.field.y + this.field.height / 1.6 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x - 180, y: this.field.y + this.field.height / 1.6 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x + 180, y: this.field.y + this.field.height / 1.6 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x + 1450, y: this.field.y + this.field.height / 1.6 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x + 1450, y: this.field.y + this.field.height / 8 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x + 170, y: this.field.y + this.field.height / 8 })
+            this.FENCEDOTS_1_LAND.push({ x: this.field.x + 170, y: this.field.y })
 
-            FENCEDOTS_2.push({ x: this.field.x - 180, y: -1300 })
-            FENCEDOTS_2.push({ x: this.field.x - 180, y: this.field.y - 720 })
-            FENCEDOTS_2.push({ x: this.field.x - 90, y: this.field.y - 20 })
-            FENCEDOTS_2.push({ x: this.field.x + 90, y: this.field.y - 20 })
-            FENCEDOTS_2.push({ x: this.field.x + 180, y: this.field.y - 720 })
-            FENCEDOTS_2.push({ x: this.field.x + 180, y: -1300 })
+            this.FENCEDOTS_2.push({ x: this.field.x - 180, y: -1300 })
+            this.FENCEDOTS_2.push({ x: this.field.x - 180, y: this.field.y - 720 })
+            this.FENCEDOTS_2.push({ x: this.field.x - 90, y: this.field.y - 20 })
+            this.FENCEDOTS_2.push({ x: this.field.x + 90, y: this.field.y - 20 })
+            this.FENCEDOTS_2.push({ x: this.field.x + 180, y: this.field.y - 720 })
+            this.FENCEDOTS_2.push({ x: this.field.x + 180, y: -1300 })
 
             OBSTACLEDOTS.push({ x: this.field.x, y: this.field.y - 360 })
             OBSTACLEDOTS.push({ x: this.field.x - 100, y: this.field.y - 250 })
@@ -1640,6 +1625,43 @@ var WorldManager = (function () {
         },
 
         init: function () {
+
+            this.FENCEDOTS_1 = []
+            this.FENCEDOTS_1_LAND = []
+            this.FENCEDOTS_2 = []
+
+            this.FENCES = []
+            this.FENCES_2 = []
+            this.FENCES_3 = []
+
+            OBSTACLEDOTS = []
+
+            OBSTACLE_1 = []
+            OBSTACLE_2 = []
+
+            TREES_1 = []
+            TREES_1_LAND = []
+
+            TREES_2 = []
+            TREES_2_LAND = []
+
+            TREES_3 = []
+            TREES_3_LAND = []
+
+            TREES_4 = []
+            TREES_4_LAND = []
+
+            TREES_3 = []
+
+
+            ANIMALS = []
+            STUPID_ANIMALS = []
+
+
+            BACKGROUNDS = []
+            FARMS = []
+            GROUNDS = []
+            RIVERS = []
 
             if (GPP_OPTION.VARIATION_MECHANIC == "B") ANIMAL_COUNT = 5
 
@@ -1913,12 +1935,12 @@ var WorldManager = (function () {
                     game['backgroundGroup' + (i + 1)].add(ground1)
                     game['backgroundGroup' + (i + 1)].add(ground2)
 
-                    ground1.x = FENCEDOTS_1[0].x + 65
-                    ground1.y = FENCEDOTS_1[0].y + 50
+                    ground1.x = this.FENCEDOTS_1[0].x + 65
+                    ground1.y = this.FENCEDOTS_1[0].y + 50
                     ground1.scale.set(GLOBAL_SCALE * 1.3)
 
-                    ground2.x = FENCEDOTS_1[5].x + 100
-                    ground2.y = FENCEDOTS_1[5].y - 850
+                    ground2.x = this.FENCEDOTS_1[5].x + 100
+                    ground2.y = this.FENCEDOTS_1[5].y - 850
                     ground2.scale.set(GLOBAL_SCALE * 1.3)
 
                     GROUNDS.push(ground1)
@@ -1959,12 +1981,12 @@ var WorldManager = (function () {
 
                 if (GPP_OPTION.VARIATION_MECHANIC != "B") {
                     for (var j = 0; j < 4; j++) {
-                        if (GPP_OPTION.VARIATION_WORLD == "B") FENCES_2.push(game.add.sprite(0, 0, "whiteDoorClose"))
-                        else FENCES_2.push(game.add.sprite(0, 0, fence))
+                        if (GPP_OPTION.VARIATION_WORLD == "B") this.FENCES_2.push(game.add.sprite(0, 0, "whiteDoorClose"))
+                        else this.FENCES_2.push(game.add.sprite(0, 0, fence))
                     }
                     if (i > 0) {
-                        FENCES_3.push(game.add.sprite(0, 0, fence))
-                        FENCES_3.push(game.add.sprite(0, 0, fence))
+                        this.FENCES_3.push(game.add.sprite(0, 0, fence))
+                        this.FENCES_3.push(game.add.sprite(0, 0, fence))
                     }
                 }
 
@@ -2024,11 +2046,11 @@ var WorldManager = (function () {
             var offsetY = - 200 * GLOBAL_SCALE
             var offsetX = 0
 
-            for (var i = 0; i < FENCEDOTS_2.length - 1; i++) {
+            for (var i = 0; i < this.FENCEDOTS_2.length - 1; i++) {
                 if (i === 2) continue
 
-                a = FENCEDOTS_2[i]
-                b = FENCEDOTS_2[i + 1]
+                a = this.FENCEDOTS_2[i]
+                b = this.FENCEDOTS_2[i + 1]
 
                 var lineLength = Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
                 var angleDeg = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI
@@ -2037,15 +2059,15 @@ var WorldManager = (function () {
                 var Y = (a.y + b.y) / 2 * scale + centerY / 2
 
                 for (var k = 0; k < 12; k += 4) {
-                    if (i < 3) FENCES_2[j + k].x = X + offsetX
-                    else FENCES_2[j + k].x = X - offsetX
-                    FENCES_2[j + k].y = Y + offsetY
-                    FENCES_2[j + k].scale.x = scale
-                    FENCES_2[j + k].scale.y = scale * lineLength / 500
-                    FENCES_2[j + k].anchor.set(0.5)
-                    FENCES_2[j + k].angle = angleDeg - 90
+                    if (i < 3) this.FENCES_2[j + k].x = X + offsetX
+                    else this.FENCES_2[j + k].x = X - offsetX
+                    this.FENCES_2[j + k].y = Y + offsetY
+                    this.FENCES_2[j + k].scale.x = scale
+                    this.FENCES_2[j + k].scale.y = scale * lineLength / 500
+                    this.FENCES_2[j + k].anchor.set(0.5)
+                    this.FENCES_2[j + k].angle = angleDeg - 90
 
-                    game['levelGroup' + (k / 4 + 1)].add(FENCES_2[j + k])
+                    game['levelGroup' + (k / 4 + 1)].add(this.FENCES_2[j + k])
                 }
                 j++
             }
@@ -2057,36 +2079,36 @@ var WorldManager = (function () {
             var X, Y, X1, Y1
 
             if (config.isLandscape) {
-                X = FENCEDOTS_1_LAND[4].x * GLOBAL_SCALE + centerX - 3
-                Y = FENCEDOTS_1_LAND[4].y * GLOBAL_SCALE + centerY / 3 - 280 * GLOBAL_SCALE
-                X1 = FENCEDOTS_1_LAND[5].x * GLOBAL_SCALE + centerX + 3
-                Y1 = FENCEDOTS_1_LAND[5].y * GLOBAL_SCALE + centerY / 3 - 280 * GLOBAL_SCALE
+                X = this.FENCEDOTS_1_LAND[4].x * GLOBAL_SCALE + centerX - 3
+                Y = this.FENCEDOTS_1_LAND[4].y * GLOBAL_SCALE + centerY / 3 - 280 * GLOBAL_SCALE
+                X1 = this.FENCEDOTS_1_LAND[5].x * GLOBAL_SCALE + centerX + 3
+                Y1 = this.FENCEDOTS_1_LAND[5].y * GLOBAL_SCALE + centerY / 3 - 280 * GLOBAL_SCALE
             } else {
-                X = FENCEDOTS_1[4].x * GLOBAL_SCALE + centerX - 3
-                Y = FENCEDOTS_1[4].y * GLOBAL_SCALE + centerY / 2
-                X1 = FENCEDOTS_1[5].x * GLOBAL_SCALE + centerX + 3
-                Y1 = FENCEDOTS_1[5].y * GLOBAL_SCALE + centerY / 2
+                X = this.FENCEDOTS_1[4].x * GLOBAL_SCALE + centerX - 3
+                Y = this.FENCEDOTS_1[4].y * GLOBAL_SCALE + centerY / 2
+                X1 = this.FENCEDOTS_1[5].x * GLOBAL_SCALE + centerX + 3
+                Y1 = this.FENCEDOTS_1[5].y * GLOBAL_SCALE + centerY / 2
             }
 
-            for (var i = 0; i < FENCES_3.length; i += 2) {
-                FENCES_3[i].x = X
-                FENCES_3[i].y = Y
-                FENCES_3[i].anchor.set(0.3, 0)
+            for (var i = 0; i < this.FENCES_3.length; i += 2) {
+                this.FENCES_3[i].x = X
+                this.FENCES_3[i].y = Y
+                this.FENCES_3[i].anchor.set(0.3, 0)
 
-                FENCES_3[i + 1].x = X1
-                FENCES_3[i + 1].y = Y1
-                FENCES_3[i + 1].angle = 180
-                FENCES_3[i + 1].anchor.set(0.3, 1)
+                this.FENCES_3[i + 1].x = X1
+                this.FENCES_3[i + 1].y = Y1
+                this.FENCES_3[i + 1].angle = 180
+                this.FENCES_3[i + 1].anchor.set(0.3, 1)
 
-                game['levelGroup' + n].add(FENCES_3[i])
-                game['levelGroup' + n].add(FENCES_3[i + 1])
+                game['levelGroup' + n].add(this.FENCES_3[i])
+                game['levelGroup' + n].add(this.FENCES_3[i + 1])
                 n++
             }
 
-            for (var i = 0; i < FENCES_3.length; i++) {
-                FENCES_3[i].scale.x = GLOBAL_SCALE
-                if (config.isLandscape) FENCES_3[i].scale.y = GLOBAL_SCALE * 4
-                else FENCES_3[i].scale.y = GLOBAL_SCALE * 2
+            for (var i = 0; i < this.FENCES_3.length; i++) {
+                this.FENCES_3[i].scale.x = GLOBAL_SCALE
+                if (config.isLandscape) this.FENCES_3[i].scale.y = GLOBAL_SCALE * 4
+                else this.FENCES_3[i].scale.y = GLOBAL_SCALE * 2
             }
         },
 
@@ -2129,7 +2151,7 @@ var WorldManager = (function () {
                 sim.world.addBody(bound)
 
                 n = 0
-                var arrLength = FENCES.length
+                var arrLength = this.FENCES.length
 
                 for (var j = arrLength; j < arrLength + 3; j++) {
                     n++
@@ -2147,20 +2169,20 @@ var WorldManager = (function () {
                         }
                     }
 
-                    if (angleDeg == -1) FENCES.push(game.add.sprite(0, 0, fenceBottom))
-                    else if (i == 2 || i == 6) FENCES.push(game.add.sprite(0, 0, door))
-                    else FENCES.push(game.add.sprite(0, 0, fence))
+                    if (angleDeg == -1) this.FENCES.push(game.add.sprite(0, 0, fenceBottom))
+                    else if (i == 2 || i == 6) this.FENCES.push(game.add.sprite(0, 0, door))
+                    else this.FENCES.push(game.add.sprite(0, 0, fence))
 
-                    FENCES[j].x = X
-                    FENCES[j].y = Y
-                    FENCES[j].scale.x = GLOBAL_SCALE
-                    FENCES[j].scale.y = scale * lineLength / 164
-                    FENCES[j].anchor.set(0.5)
+                    this.FENCES[j].x = X
+                    this.FENCES[j].y = Y
+                    this.FENCES[j].scale.x = GLOBAL_SCALE
+                    this.FENCES[j].scale.y = scale * lineLength / 164
+                    this.FENCES[j].anchor.set(0.5)
 
-                    if (i == 6 && GPP_OPTION.VARIATION_WORLD != "A") FENCES[j].angle = angleDeg + 90 + 1
-                    else FENCES[j].angle = angleDeg - 90 + 1
+                    if (i == 6 && GPP_OPTION.VARIATION_WORLD != "A") this.FENCES[j].angle = angleDeg + 90 + 1
+                    else this.FENCES[j].angle = angleDeg - 90 + 1
 
-                    game['levelGroup' + n].add(FENCES[j])
+                    game['levelGroup' + n].add(this.FENCES[j])
                 }
             }
         },
@@ -2251,7 +2273,7 @@ var WorldManager = (function () {
                 }
 
                 n = 0
-                var arrLength = FENCES.length
+                var arrLength = this.FENCES.length
 
                 for (var j = arrLength; j < arrLength + 3; j++) {
                     n++
@@ -2270,18 +2292,18 @@ var WorldManager = (function () {
                     }
 
                     if (i == 4 && (n == 2 || n == 3)) continue
-                    else if (angleDeg == -90) FENCES.push(game.add.sprite(0, 0, fenceBottom))
-                    else FENCES.push(game.add.sprite(0, 0, fence))
+                    else if (angleDeg == -90) this.FENCES.push(game.add.sprite(0, 0, fenceBottom))
+                    else this.FENCES.push(game.add.sprite(0, 0, fence))
 
-                    FENCES[j].x = X
+                    this.FENCES[j].x = X
 
-                    FENCES[j].y = Y
-                    FENCES[j].scale.x = GLOBAL_SCALE * 0.8
-                    FENCES[j].scale.y = scale * lineLength / 164
-                    FENCES[j].anchor.set(0.5)
-                    FENCES[j].angle = angleDeg - 90 + 1
+                    this.FENCES[j].y = Y
+                    this.FENCES[j].scale.x = GLOBAL_SCALE * 0.8
+                    this.FENCES[j].scale.y = scale * lineLength / 164
+                    this.FENCES[j].anchor.set(0.5)
+                    this.FENCES[j].angle = angleDeg - 90 + 1
 
-                    game['levelGroup' + n].add(FENCES[j])
+                    game['levelGroup' + n].add(this.FENCES[j])
                 }
             }
         },
@@ -2381,11 +2403,11 @@ var WorldManager = (function () {
             if (!config.isLandscape) {
                 this.destroyLandscapeBounds()
                 this.destroyBounds()
-                this.createBounds(FENCEDOTS_1)
+                this.createBounds(this.FENCEDOTS_1)
             } else {
                 this.destroyBounds()
                 //this.destroyLandscapeBounds()
-                this.createLandscapeBounds(FENCEDOTS_1_LAND)
+                this.createLandscapeBounds(this.FENCEDOTS_1_LAND)
             }
         },
 
@@ -2407,8 +2429,8 @@ var WorldManager = (function () {
         },
 
         destroySpriteBounds: function () {
-            for (var i = 0; i < FENCES.length; i++) {
-                FENCES[i].destroy()
+            for (var i = 0; i < this.FENCES.length; i++) {
+                this.FENCES[i].destroy()
             }
         },
 
@@ -2599,13 +2621,13 @@ var WorldManager = (function () {
 
             for (var i = 0; i < TREES_1.length; i++) {
                 TREES_1[i].x = -60 + i * offsetX
-                TREES_1[i].y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 300 * GLOBAL_SCALE
+                TREES_1[i].y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 300 * GLOBAL_SCALE
                 TREES_1[i].scale.set(GLOBAL_SCALE)
             }
 
             for (var i = 0; i < TREES_1.length; i++) {
                 TREES_2[i].x = game.width + 60 - i * offsetX
-                TREES_2[i].y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 300 * GLOBAL_SCALE
+                TREES_2[i].y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 300 * GLOBAL_SCALE
                 TREES_2[i].scale.set(GLOBAL_SCALE)
             }
         },
@@ -2761,12 +2783,12 @@ var WorldManager = (function () {
             for (var i = 0; i < 3; i++) {
                 if (config.isLandscape) {
                     FARMS[i].x = game.width / 2
-                    FARMS[i].y = FENCEDOTS_1[0].y + centerY / 3 - 230
-                    FARMS[i].y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 3 - 300 * GLOBAL_SCALE
+                    FARMS[i].y = this.FENCEDOTS_1[0].y + centerY / 3 - 230
+                    FARMS[i].y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 3 - 300 * GLOBAL_SCALE
                     FARMS[i].scale.set(GLOBAL_SCALE * 0.85)
                 } else {
                     FARMS[i].x = game.width / 2
-                    FARMS[i].y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 350 * GLOBAL_SCALE
+                    FARMS[i].y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 350 * GLOBAL_SCALE
                     FARMS[i].scale.set(GLOBAL_SCALE)
                 }
             }
@@ -2774,22 +2796,22 @@ var WorldManager = (function () {
             for (var i = 0; i < RIVERS.length / 2; i += 2) {
                 if (config.isLandscape) {
                     RIVERS[i].x = game.width / 2 - 80
-                    RIVERS[i].y = FENCEDOTS_1[0].y + centerY / 3 - 270
+                    RIVERS[i].y = this.FENCEDOTS_1[0].y + centerY / 3 - 270
                     RIVERS[i + 1].x = game.width / 2 + 120
-                    RIVERS[i + 1].y = FENCEDOTS_1[0].y + centerY / 3 - 270
+                    RIVERS[i + 1].y = this.FENCEDOTS_1[0].y + centerY / 3 - 270
 
                 } else {
                     RIVERS[i].x = game.width / 2 - 80
-                    RIVERS[i].y = FENCEDOTS_1[0].y + centerY / 3 - 200
+                    RIVERS[i].y = this.FENCEDOTS_1[0].y + centerY / 3 - 200
                     RIVERS[i + 1].x = game.width / 2 + 80
-                    RIVERS[i + 1].y = FENCEDOTS_1[0].y + centerY / 3 - 200
+                    RIVERS[i + 1].y = this.FENCEDOTS_1[0].y + centerY / 3 - 200
                 }
             }
 
             if (this.puddle) this.puddle.destroy()
             this.puddle = game.add.sprite(game.width / 2, game.height / 2, 'puddle')
             this.puddle.x = game.width / 2
-            config.isLandscape ? this.puddle.y = FENCEDOTS_1[1].y * GLOBAL_SCALE + centerY / 3 - 150 * GLOBAL_SCALE : this.puddle.y = FENCEDOTS_1[2].y * GLOBAL_SCALE + centerY / 3
+            config.isLandscape ? this.puddle.y = this.FENCEDOTS_1[1].y * GLOBAL_SCALE + centerY / 3 - 150 * GLOBAL_SCALE : this.puddle.y = this.FENCEDOTS_1[2].y * GLOBAL_SCALE + centerY / 3
 
             this.puddle.anchor.set(0.5)
             this.puddle.scale.set(GLOBAL_SCALE * 3)
@@ -2817,11 +2839,11 @@ var WorldManager = (function () {
             } else if (GPP_OPTION.VARIATION_MECHANIC == "B") {
 
                 if (!config.isLandscape) {
-                    var x = (FENCEDOTS_1[4].x + FENCEDOTS_1[5].x) / 2 * GLOBAL_SCALE + centerX
-                    var y = FENCEDOTS_1[4].y * GLOBAL_SCALE + centerY / 2
+                    var x = (this.FENCEDOTS_1[4].x + this.FENCEDOTS_1[5].x) / 2 * GLOBAL_SCALE + centerX
+                    var y = this.FENCEDOTS_1[4].y * GLOBAL_SCALE + centerY / 2
                 } else {
-                    var x = (FENCEDOTS_1_LAND[4].x + FENCEDOTS_1_LAND[5].x) / 2 * GLOBAL_SCALE + centerX
-                    var y = FENCEDOTS_1_LAND[4].y * GLOBAL_SCALE + centerY / 2 - 350 * GLOBAL_SCALE
+                    var x = (this.FENCEDOTS_1_LAND[4].x + this.FENCEDOTS_1_LAND[5].x) / 2 * GLOBAL_SCALE + centerX
+                    var y = this.FENCEDOTS_1_LAND[4].y * GLOBAL_SCALE + centerY / 2 - 350 * GLOBAL_SCALE
                 }
 
                 this.bottomFarm.x = x
@@ -2829,19 +2851,19 @@ var WorldManager = (function () {
                 this.bottomFarm.scale.set(GLOBAL_SCALE * 2.5)
 
                 this.road.x = game.world.centerX
-                this.road.y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 500 * GLOBAL_SCALE
+                this.road.y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 500 * GLOBAL_SCALE
                 this.road.width = game.width
                 this.road.scale.set(GLOBAL_SCALE * 2.3)
 
                 this.runTruck()
 
-                this.truck.y = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 600 * GLOBAL_SCALE
+                this.truck.y = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 600 * GLOBAL_SCALE
                 this.truck.scale.set(GLOBAL_SCALE * 3)
             }
 
             var mult = config.isLandscape ? -70 : 200
-            this.farmX = (FENCEDOTS_1[0].x + FENCEDOTS_1[FENCEDOTS_1.length - 1].x) / 2 * GLOBAL_SCALE + centerX
-            this.farmY = (FENCEDOTS_1[0].y + FENCEDOTS_1[FENCEDOTS_1.length - 1].y) / 2 * GLOBAL_SCALE + centerY / 3 + mult * GLOBAL_SCALE
+            this.farmX = (this.FENCEDOTS_1[0].x + this.FENCEDOTS_1[this.FENCEDOTS_1.length - 1].x) / 2 * GLOBAL_SCALE + centerX
+            this.farmY = (this.FENCEDOTS_1[0].y + this.FENCEDOTS_1[this.FENCEDOTS_1.length - 1].y) / 2 * GLOBAL_SCALE + centerY / 3 + mult * GLOBAL_SCALE
 
             for (var i = 0; i < GROUNDS.length; i += 2) {
                 GROUNDS[i].scale.set(GLOBAL_SCALE)
@@ -2855,9 +2877,9 @@ var WorldManager = (function () {
             }
 
             if (!config.isLandscape) {
-                catchPoint = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2
+                catchPoint = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2
             } else {
-                catchPoint = FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 110 * GLOBAL_SCALE
+                catchPoint = this.FENCEDOTS_1[0].y * GLOBAL_SCALE + centerY / 2 - 110 * GLOBAL_SCALE
             }
 
             this.resizeAnimals()
@@ -3173,14 +3195,6 @@ var Game = (function () {
         create: function () {
             centerX = game.width / 2
             centerY = game.height / 2
-
-            if (config.isLandscape) {
-                absoluteHeight = game.width
-                absoluteWidth = game.height
-            } else {
-                absoluteHeight = game.height
-                absoluteWidth = game.width
-            }
 
             game.physics.startSystem(Phaser.Physics.P2JS);
 
