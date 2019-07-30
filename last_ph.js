@@ -2819,8 +2819,8 @@ var WorldManager = (function () {
             game.levelGroup3.add(this.puddle)
 
             if (currentLevel == 3) {
-                game.physics.p2.enable(game.worldManager.puddle)
-                game.worldManager.puddle.body.kinematic = true
+                game.physics.p2.enable(this.puddle)
+                this.puddle.body.kinematic = true
             }
 
             if (GPP_OPTION.VARIATION_WORLD != "B") {
