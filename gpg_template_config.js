@@ -67,10 +67,8 @@ function applyConfigAndRestart() {
     var animal_str = e.options[e.selectedIndex].text || 'Sheep';
 
     e = document.getElementById("mechanic");
-    var mechanic_ch = Number(e.options[e.selectedIndex].value || 'A');
-    console.log(animal_ch + " " + mechanic_ch)
+    var mechanic_ch = e.options[e.selectedIndex].value || 'A';
     var mechanic_str = e.options[e.selectedIndex].text || 'Level';
-
 
     e = document.getElementById("playable_lang");
     var pl_lang = e.options[e.selectedIndex].value || 'en';
@@ -213,7 +211,7 @@ generatePlayable = function(option) {
     animal_str = background_str.split(' ').join('_')
 
     e = document.getElementById("mechanic");
-    var mechanic_ch = Number(e.options[e.selectedIndex].value || 'A');
+    var mechanic_ch = e.options[e.selectedIndex].value || 'A';
     var mechanic_str = e.options[e.selectedIndex].text || 'Level';
     mechanic_str = background_str.split(' ').join('_')
 
