@@ -576,7 +576,7 @@ var ResizeManager = (function() {
                 if (1 === manager.scaleMethodIndex) {
                     //game.scale.setGameSize(g, u), this.scaleFactor = l, game.mainGroup.scale.set(l), game.mainWorldGroup.scale.set(l), game.mainMiddleGroup.scale.set(l);
                     var c = g - config.BASE_GAME_WIDTH * l;
-                    // game..x = c mainGroup/ 2;
+                    // game.mainGroup.x = c / 2;
                     // game.mainWorldGroup.x = c / 2;
                     // game.mainMiddleGroup.x = c / 2
                     var d = u - config.BASE_GAME_HEIGHT * l;
