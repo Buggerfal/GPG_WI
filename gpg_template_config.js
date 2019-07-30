@@ -223,7 +223,7 @@ generatePlayable = function(option) {
 
     params_for_iron['{VARIATION_WORLD}'] = world_ch
     params_for_iron['{VARIATION_ANIMAL}'] = animal_ch
-    params_for_iron['"{VARIATION_MECHANIC}"'] = mechanic_ch
+    params_for_iron['{VARIATION_MECHANIC}'] = mechanic_ch
 
     // if (background_ch == "A" || background_ch == "B") {
     //     dc = dc.replace('{STANDART_MOUNTAIN}', window.resourcesPack.mountain)
