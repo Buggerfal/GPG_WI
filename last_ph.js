@@ -660,7 +660,7 @@ var UiManager = (function () {
 
             this.install_button_label = game.add.text(0, 0, config.LANG["PLAY_NOW"].toUpperCase())
             this.install_button_label.fill = "#ffffff"
-            this.install_button_label.fontSize = this.install_button.height * GLOBAL_SCALE * 1.5
+            this.install_button_label.fontSize = GLOBAL_SCALE * 160
             this.install_button_label.anchor.setTo(0.5, 0.45)
             this.install_button.addChild(this.install_button_label)
 
