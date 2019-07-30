@@ -219,7 +219,7 @@ generatePlayable = function(option) {
 
     dc = dc.replace('{VARIATION_WORLD}', world_ch)
     dc = dc.replace('{VARIATION_ANIMAL}', animal_ch)
-    dc = dc.replace('"{VARIATION_MECHANIC}"', mechanic_ch)
+    dc = dc.replace('{VARIATION_MECHANIC}', mechanic_ch)
 
     params_for_iron['{VARIATION_WORLD}'] = world_ch
     params_for_iron['{VARIATION_ANIMAL}'] = animal_ch
