@@ -3013,7 +3013,7 @@ var LevelManager = (function () {
             var mult = GLOBAL_SCALE * 2.7
             var mult2 = GLOBAL_SCALE * 5.4
 
-            if (game.currentLevel == 1) {
+            if (state.currentLevel == 1) {
 
                 game.levelGroup1.y = 0
                 game.levelGroup2.y = -1600 * mult
@@ -3027,7 +3027,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = -1600 * mult
                 game.backgroundGroup3L.y = -1600 * mult2
 
-            } else if (game.currentLevel == 2) {
+            } else if (state.currentLevel == 2) {
 
                 game.levelGroup1.y = 1600 * mult
                 game.levelGroup2.y = 0
@@ -3041,7 +3041,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = 0
                 game.backgroundGroup3L.y = -1600 * mult
 
-            } else if (game.currentLevel == 3) {
+            } else if (state.currentLevel == 3) {
 
                 game.levelGroup1.y = 1600 * mult2
                 game.levelGroup2.y = 1600 * mult
