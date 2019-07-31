@@ -2998,9 +2998,6 @@ var LevelManager = (function () {
         kostil: 0,
 
         onResize: function () {
-
-
-
             if (currentLevel > this.bannerShows) {
                 this.greenLevelBanner.destroy()
                 this.showLevelBanner()
@@ -3059,8 +3056,8 @@ var LevelManager = (function () {
                 game.backgroundGroup3L.y = 0
             }
 
-            mediumCursorSize = 400 * GLOBAL_SCALE
-            smallCursorSize = 30 * GLOBAL_SCALE
+            Game.mediumCursorSize = 400 * GLOBAL_SCALE
+            Game.smallCursorSize = 30 * GLOBAL_SCALE
 
             distance = 350
             speed = 50 * GLOBAL_SCALE
@@ -3124,8 +3121,7 @@ var Boot = (function () {
 
 
 var cursor
-var cursors
-var mediumCursorSize = 0
+var cursorthis.s
 var smallCursorSize = 0
 
 var fenceBounds
@@ -3189,8 +3185,8 @@ var Game = (function () {
     state.prototype = {
         init: function () {
             
-            mediumCursorSize = 0
-            smallCursorSize = 0
+            this.mediumCursorSize = 0
+            this.smallCursorSize = 0
 
             allInHouse = false
             canCatch = true
@@ -3305,7 +3301,7 @@ var Game = (function () {
                     //distance = 300
                     levelY = game.levelGroup2.y
                     game.worldManager.createObstacleBounds()
-                    cursor.body.setCircle(mediumCursorSize)
+                    cursor.body.setCircle(this.mediumCursorSize)
 
                 } else if (currentLevel == 2) {
                     //distance = 250
@@ -3317,7 +3313,7 @@ var Game = (function () {
                     game.worldManager.destroyObstacleBounds()
                     game.physics.p2.enable(game.worldManager.puddle)
                     game.worldManager.puddle.body.kinematic = true
-                    //cursor.body.setCircle(smallCursorSize)
+                    //cursor.body.setCthis.ircle(smallCursorSize)
                 }
 
                 if (levelY > -1 && !canCatch) {
