@@ -976,7 +976,7 @@ var UiManager = (function () {
 
             this.spawnRateBtn.events.onInputDown.add(function () {
 
-                if (game.money >= game.upgradeCostArray[game.spawnRateCostIndex]) {
+                if (money >= upgradeCostArray[spawnRateCostIndex]) {
 
                     game.add.tween(this.spawnRateBtn.scale).to({
                         x: buttonScale * 0.9,
@@ -989,9 +989,9 @@ var UiManager = (function () {
                     })
 
                     ANIMAL_COUNT = ANIMAL_COUNT * 2
-                    game.money -= game.upgradeCostArray[game.spawnRateCostIndex]
-                    game.spawnRateCostIndex++
-                    this.spawnRateCost.setText(game.upgradeCostArray[this.spawnRateCostIndex])
+                    money -= upgradeCostArray[spawnRateCostIndex]
+                    spawnRateCostIndex++
+                    this.spawnRateCost.setText(upgradeCostArray[spawnRateCostIndex])
                     this.increaseProgressIdle()
                 }
 
@@ -1032,7 +1032,7 @@ var UiManager = (function () {
 
             this.woolValueBtn.events.onInputDown.add(function () {
 
-                if (game.money >= game.upgradeCostArray[game.woolValueCostIndex]) {
+                if (money >= upgradeCostArray[woolValueCostIndex]) {
 
                     game.add.tween(this.woolValueBtn.scale).to({
                         x: buttonScale * 0.9,
@@ -1044,13 +1044,13 @@ var UiManager = (function () {
                         }, 100, "Linear", true)
                     })
 
-                    game.woolValueNumber += 5
-                    game.money -= game.upgradeCostArray[game.woolValueCostIndex]
-                    game.woolValueCostIndex++
-                    this.voolValueCost.setText(game.upgradeCostArray[game.woolValueCostIndex])
+                    woolValueNumber += 5
+                    money -= upgradeCostArray[woolValueCostIndex]
+                    woolValueCostIndex++
+                    this.voolValueCost.setText(upgradeCostArray[woolValueCostIndex])
                     this.increaseProgressIdle()
                 }
-                console.log("Wool value: " + game.woolValueNumber)
+                console.log("Wool value: " + woolValueNumber)
             }, this);
 
 
@@ -1087,7 +1087,7 @@ var UiManager = (function () {
 
             this.woolQuantityBtn.events.onInputDown.add(function () {
 
-                if (game.money >= game.upgradeCostArray[game.woolQuantityCostIndex]) {
+                if (money >= upgradeCostArray[woolQuantityCostIndex]) {
 
                     game.add.tween(this.woolQuantityBtn.scale).to({
                         x: buttonScale * 0.9,
@@ -1099,13 +1099,13 @@ var UiManager = (function () {
                         }, 100, "Linear", true)
                     })
 
-                    game.woolQuantityNumber += 5
-                    game.money -= game.upgradeCostArray[game.woolQuantityCostIndex]
-                    game.woolQuantityCostIndex++
-                    this.woolQuantityCost.setText(game.upgradeCostArray[game.woolQuantityCostIndex])
+                    woolQuantityNumber += 5
+                    money -= upgradeCostArray[woolQuantityCostIndex]
+                    woolQuantityCostIndex++
+                    this.woolQuantityCost.setText(upgradeCostArray[woolQuantityCostIndex])
                     this.increaseProgressIdle()
                 }
-                console.log("Wool quantity: " + game.woolQuantityNumber)
+                console.log("Wool quantity: " + woolQuantityNumber)
             }, this);
 
 
@@ -1141,7 +1141,7 @@ var UiManager = (function () {
             this.bigSheepBtn.addChild(this.bigSheepTextImg)
 
             this.bigSheepBtn.events.onInputDown.add(function () {
-                if (game.money >= game.upgradeCostArray[game.bigSheepCostIndex]) {
+                if (money >= upgradeCostArray[bigSheepCostIndex]) {
 
                     game.add.tween(this.bigSheepBtn.scale).to({
                         x: buttonScale * 0.9,
@@ -1154,19 +1154,19 @@ var UiManager = (function () {
                     })
 
                     var animalCount = Math.round(ANIMALS.length * 0.1)
-                    game.bigSheepNumber += 0.25 * GLOBAL_SCALE
+                    bigSheepNumber += 0.25 * GLOBAL_SCALE
 
                     for (var i = 0; i < animalCount; i++) {
                         var animal = Math.floor((Math.random() * ANIMALS.length));
-                        ANIMALS[animal].scale.set(game.bigSheepNumber)
-                        ANIMALS[animal].body.setCircle(25 * game.bigSheepNumber)
+                        ANIMALS[animal].scale.set(bigSheepNumber)
+                        ANIMALS[animal].body.setCircle(25 * bigSheepNumber)
                     }
-                    game.money -= game.upgradeCostArray[game.bigSheepCostIndex]
-                    game.bigSheepCostIndex++
-                    this.bigSheepCost.setText(game.upgradeCostArray[game.bigSheepCostIndex])
+                    money -= upgradeCostArray[bigSheepCostIndex]
+                    bigSheepCostIndex++
+                    this.bigSheepCost.setText(upgradeCostArray[bigSheepCostIndex])
                     this.increaseProgressIdle()
                 }
-                console.log("Big sheep: " + game.bigSheepNumber)
+                console.log("Big sheep: " + bigSheepNumber)
             }, this);
 
 
@@ -1202,7 +1202,7 @@ var UiManager = (function () {
             this.trucksSpeedBtn.addChild(this.trucksSpeedImg)
 
             this.trucksSpeedBtn.events.onInputDown.add(function () {
-                if (game.money >= game.upgradeCostArray[game.trucksSpeedCostIndex]) {
+                if (money >= upgradeCostArray[trucksSpeedCostIndex]) {
 
                     game.add.tween(this.trucksSpeedBtn.scale).to({
                         x: buttonScale * 0.9,
@@ -1214,14 +1214,14 @@ var UiManager = (function () {
                         }, 100, "Linear", true)
                     })
 
-                    game.trucksSpeedNumber -= 200
-                    game.worldManager.truckTween.updateTweenData('duration', game.trucksSpeedNumber)
-                    game.money -= game.upgradeCostArray[game.trucksSpeedCostIndex]
-                    game.trucksSpeedCostIndex++
-                    this.trucksSpeedCost.setText(game.upgradeCostArray[game.trucksSpeedCostIndex])
+                    trucksSpeedNumber -= 200
+                    game.worldManager.truckTween.updateTweenData('duration', trucksSpeedNumber)
+                    money -= upgradeCostArray[trucksSpeedCostIndex]
+                    trucksSpeedCostIndex++
+                    this.trucksSpeedCost.setText(upgradeCostArray[trucksSpeedCostIndex])
                     this.increaseProgressIdle()
                 }
-                console.log("Truck this.speed: " + game.trucksSpeedNumber)
+                console.log("Truck speed: " + trucksSpeedNumber)
             }, this);
 
             if (config.isLandscape) {
@@ -1399,7 +1399,7 @@ var UiManager = (function () {
             if (GPP_OPTION.VARIATION_MECHANIC == "A" || GPP_OPTION.VARIATION_MECHANIC == "C") {
                 progressOffset = this.progress_bar_fill_grey.width / ANIMAL_COUNT
             } else {
-                progressOffset = this.progress_bar_fill_grey.width / game.maxMoney
+                progressOffset = this.progress_bar_fill_grey.width / maxMoney
             }
 
             this.finishLevelText.x = 0
@@ -1484,11 +1484,11 @@ var UiManager = (function () {
                 }, 50, "Linear", true)
             }, this)
 
-            game.add.tween(FARMS[game.currentLevel - 1].scale).to({
+            game.add.tween(FARMS[currentLevel - 1].scale).to({
                 x: this.farmScale * 1.1,
                 y: this.farmScale * 1.1
             }, 60, "Linear", true).onComplete.add(function () {
-                game.add.tween(FARMS[game.currentLevel - 1].scale).to({
+                game.add.tween(FARMS[currentLevel - 1].scale).to({
                     x: this.farmScale,
                     y: this.farmScale
                 }, 50, "Linear", true)
@@ -1518,8 +1518,8 @@ var UiManager = (function () {
 
         increaseProgressIdle: function () {
 
-            this.progress_mask.x = -280 + this.progress_bar_fill_grey.width * game.money / game.maxMoney
-            this.progress_text.setText(game.money + "$")
+            this.progress_mask.x = -280 + this.progress_bar_fill_grey.width * money / maxMoney
+            this.progress_text.setText(money + "$")
         }
 
     }
@@ -1712,7 +1712,7 @@ var WorldManager = (function () {
         },
 
         createAnimals: function () {
-            if (!game.canCatch) {
+            if (!canCatch) {
 
                 for (var i = 0; i < ANIMAL_COUNT; i++) {
                     var animal = this.animals.create(this.bounds3.randomX, this.bounds3.randomY, animalSprite)
@@ -1778,7 +1778,7 @@ var WorldManager = (function () {
                 animal.body.static = true
                 var speed = Math.floor(Math.random() * 300) + 297
                 animal.body.moveForward(speed * GLOBAL_SCALE * 2.2)
-                game['levelGroup' + game.currentLevel].add(animal)
+                game['levelGroup' + currentLevel].add(animal)
                 for (var j = 0; j < 20; j++) animal.moveDown()
                 STUPID_ANIMALS.push(animal)
             }
@@ -2030,7 +2030,7 @@ var WorldManager = (function () {
 
             this.truckTween = game.add.tween(this.truck).to({
                 x: game.width + 42
-            }, game.trucksSpeedNumber, 'Linear', true, 1, 6)
+            }, trucksSpeedNumber, 'Linear', true, 1, 6)
 
 
             this.truckTween.onComplete.add(() => {
@@ -2782,7 +2782,7 @@ var WorldManager = (function () {
 
             this.setBounds()
             this.createInsideBounds()
-            if (game.currentLevel == 2) this.createObstacleBounds()
+            if (currentLevel == 2) this.createObstacleBounds()
 
             for (var i = 0; i < 3; i++) {
                 if (config.isLandscape) {
@@ -2822,7 +2822,7 @@ var WorldManager = (function () {
 
             game.levelGroup3.add(this.puddle)
 
-            if (game.currentLevel == 3) {
+            if (currentLevel == 3) {
                 game.physics.p2.enable(this.puddle)
                 this.puddle.body.kinematic = true
             }
@@ -2953,12 +2953,12 @@ var LevelManager = (function () {
             }, 0x00E676)
             this.greenLevelBanner.anchor.set(0.5)
 
-            this.greenBannerText = game.add.text(0, 0, 'Level ' + game.currentLevel + '\n' + game.currentLevel + '/3', { align: 'center' })
+            this.greenBannerText = game.add.text(0, 0, 'Level ' + currentLevel + '\n' + currentLevel + '/3', { align: 'center' })
             this.greenBannerText.anchor.set(0.5)
             this.greenBannerText.font = 'Arial'
             this.greenBannerText.fontSize = height / 3.5
             this.greenBannerText.fill = '#ffffff'
-            this.greenBannerText.setText('Level ' + game.currentLevel + '\n' + game.currentLevel + '/3')
+            this.greenBannerText.setText('Level ' + currentLevel + '\n' + currentLevel + '/3')
             this.greenLevelBanner.addChild(this.greenBannerText)
         },
 
@@ -2998,7 +2998,10 @@ var LevelManager = (function () {
         kostil: 0,
 
         onResize: function () {
-            if (game.currentLevel > this.bannerShows) {
+
+
+
+            if (currentLevel > this.bannerShows) {
                 this.greenLevelBanner.destroy()
                 this.showLevelBanner()
             }
@@ -3013,7 +3016,7 @@ var LevelManager = (function () {
             var mult = GLOBAL_SCALE * 2.7
             var mult2 = GLOBAL_SCALE * 5.4
 
-            if (game.currentLevel == 1) {
+            if (currentLevel == 1) {
 
                 game.levelGroup1.y = 0
                 game.levelGroup2.y = -1600 * mult
@@ -3027,7 +3030,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = -1600 * mult
                 game.backgroundGroup3L.y = -1600 * mult2
 
-            } else if (game.currentLevel == 2) {
+            } else if (currentLevel == 2) {
 
                 game.levelGroup1.y = 1600 * mult
                 game.levelGroup2.y = 0
@@ -3041,7 +3044,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = 0
                 game.backgroundGroup3L.y = -1600 * mult
 
-            } else if (game.currentLevel == 3) {
+            } else if (currentLevel == 3) {
 
                 game.levelGroup1.y = 1600 * mult2
                 game.levelGroup2.y = 1600 * mult
@@ -3056,17 +3059,17 @@ var LevelManager = (function () {
                 game.backgroundGroup3L.y = 0
             }
 
-            game.mediumCursorSize = 400 * GLOBAL_SCALE
-            game.smallCursorSize = 30 * GLOBAL_SCALE
+            mediumCursorSize = 400 * GLOBAL_SCALE
+            smallCursorSize = 30 * GLOBAL_SCALE
 
-            game.distance = 350
-            game.speed = 50 * GLOBAL_SCALE
-            game.fastSpeed = 200 * GLOBAL_SCALE
-            config.isLandscape ? game.farmDistance = 280 * GLOBAL_SCALE : game.farmDistance = 800 * GLOBAL_SCALE
-            game.cursorDistance = 800 * GLOBAL_SCALE
-            game.transparancyDistance = 200 * GLOBAL_SCALE
-            game.animalAcceleration = 16000 * GLOBAL_SCALE
-            //game.animalAccelerationLand = 16000 * GLOBAL_SCALE
+            distance = 350
+            speed = 50 * GLOBAL_SCALE
+            fastSpeed = 200 * GLOBAL_SCALE
+            config.isLandscape ? farmDistance = 280 * GLOBAL_SCALE : farmDistance = 800 * GLOBAL_SCALE
+            cursorDistance = 800 * GLOBAL_SCALE
+            transparancyDistance = 200 * GLOBAL_SCALE
+            animalAcceleration = 16000 * GLOBAL_SCALE
+            //animalAccelerationLand = 16000 * GLOBAL_SCALE
 
         }
     }
@@ -3122,7 +3125,60 @@ var Boot = (function () {
 
 var cursor
 var cursors
+var mediumCursorSize = 0
+var smallCursorSize = 0
+
+var fenceBounds
+var allInHouse = false
+var canCatch = true
+var level2BodyDestroyed = false
 var worldInterval
+var currentLevel = 1
+
+var distance = 350
+var distancePointer = 0
+var speed = 0
+var fastSpeed = 0
+var farmDistance = 0
+var cursorDistance = 0
+var transparancyDistance = 0
+var animalAcceleration = 0
+var animalAccelerationLand = 0
+
+var levelY = 0
+
+var money = 0
+var maxMoney = 5000
+
+var upgradeCostArray = [50, 100, 200, 300, 500, 800, 1300, 2100, 3400, 5000]
+var spawnRateCostIndex = 0
+var woolValueCostIndex = 0
+var woolQuantityCostIndex = 0
+var bigSheepCostIndex = 0
+var trucksSpeedCostIndex = 0
+
+var spawnRateNumber = 50
+var woolValueNumber = 10
+var woolQuantityNumber = 25
+var bigSheepNumber = 0.7
+var trucksSpeedNumber = 5000
+var woolUnits = 0
+var woolOnTruck = 0
+
+var canCollectMoney = true
+var canCollectWool = true
+
+var stop = false
+var radius = 0
+var angleDeg = 0
+var canCollide = true
+var xRing = 0
+var yRing = 0
+var xCenter = 0
+var yCenter = 0
+var angleRad = 0
+
+var stepCounter = 0
 
 
 var Game = (function () {
@@ -3132,7 +3188,60 @@ var Game = (function () {
     };
     state.prototype = {
         init: function () {
-        
+            
+            mediumCursorSize = 0
+            smallCursorSize = 0
+
+            allInHouse = false
+            canCatch = true
+            level2BodyDestroyed = false
+            currentLevel = 1
+
+            distance = 350
+            distancePointer = 0
+            speed = 0
+            fastSpeed = 0
+            farmDistance = 0
+            cursorDistance = 0
+            transparancyDistance = 0
+            animalAcceleration = 0
+            animalAccelerationLand = 0
+
+            levelY = 0
+
+            money = 0
+            maxMoney = 5000
+
+            upgradeCostArray = [50, 100, 200, 300, 500, 800, 1300, 2100, 3400, 5000]
+            spawnRateCostIndex = 0
+            woolValueCostIndex = 0
+            woolQuantityCostIndex = 0
+            bigSheepCostIndex = 0
+            trucksSpeedCostIndex = 0
+
+            spawnRateNumber = 50
+            woolValueNumber = 10
+            woolQuantityNumber = 25
+            bigSheepNumber = 0.7
+            trucksSpeedNumber = 5000
+            woolUnits = 0
+            woolOnTruck = 0
+
+            canCollectMoney = true
+            canCollectWool = true
+
+            stop = false
+            radius = 0
+            angleDeg = 0
+            canCollide = true
+            xRing = 0
+            yRing = 0
+            xCenter = 0
+            yCenter = 0
+            angleRad = 0
+
+            stepCounter = 0
+
             this.isInited = false;
             (config.mainState = this).stage.backgroundColor = "#1F1F1F";
             game.input.maxPointers = 1;
@@ -3142,45 +3251,6 @@ var Game = (function () {
         },
 
         create: function () {
-            this.mediumCursorSize = 0
-            this.smallCursorSize = 0
-
-            this.allInHouse = false
-            this.canCatch = true
-            this.currentLevel = 1
-
-            this.distance = 350
-            this.distancePointer = 0
-            this.speed = 0
-            this.fastSpeed = 0
-            this.farmDistance = 0
-            this.cursorDistance = 0
-            this.transparancyDistance = 0
-            this.animalAcceleration = 0
-            this.animalAccelerationLand = 0
-
-            this.levelY = 0
-
-            this.money = 0
-            this.maxMoney = 5000
-
-            this.upgradeCostArray = [50, 100, 200, 300, 500, 800, 1300, 2100, 3400, 5000]
-            this.spawnRateCostIndex = 0
-            this.woolValueCostIndex = 0
-            this.woolQuantityCostIndex = 0
-            this.bigSheepCostIndex = 0
-            this.trucksSpeedCostIndex = 0
-
-            this.woolValueNumber = 10
-            this.woolQuantityNumber = 25
-            this.bigSheepNumber = 0.7
-            this.trucksSpeedNumber = 5000
-            this.woolUnits = 0
-            this.woolOnTruck = 0
-
-            this.canCollectMoney = true
-            this.canCollectWool = true
-            
             centerX = game.width / 2
             centerY = game.height / 2
 
@@ -3203,7 +3273,7 @@ var Game = (function () {
             this.moveCursor()
             this.catchAnimals()
 
-            if (this.allInHouse) {
+            if (allInHouse) {
 
                 if (GPP_OPTION.VARIATION_MECHANIC != "B") {
                     game.uiManager.setZeroProgress()
@@ -3216,12 +3286,12 @@ var Game = (function () {
                     }, this);
 
                 } else if (GPP_OPTION.VARIATION_MECHANIC == "B") {
-                    this.canCatch = true
+                    canCatch = true
                     game.worldManager.createAnimals()
-                    this.bigSheepCostIndex = 0
-                    this.bigSheepNumber = GLOBAL_SCALE * 2
+                    bigSheepCostIndex = 0
+                    bigSheepNumber = GLOBAL_SCALE * 2
                 }
-                this.allInHouse = false
+                allInHouse = false
             }
 
             if (GPP_OPTION.VARIATION_MECHANIC == "B") this.checkTruckPosition()
@@ -3229,17 +3299,17 @@ var Game = (function () {
 
             //----goes to the next level----
 
-            if (!this.canCatch && GPP_OPTION.VARIATION_MECHANIC != "B") {
+            if (!canCatch && GPP_OPTION.VARIATION_MECHANIC != "B") {
 
-                if (this.currentLevel == 1) {
-                    //this.distance = 300
-                    this.levelY = game.levelGroup2.y
+                if (currentLevel == 1) {
+                    //distance = 300
+                    levelY = game.levelGroup2.y
                     game.worldManager.createObstacleBounds()
-                    cursor.body.setCircle(this.mediumCursorSize)
+                    cursor.body.setCircle(mediumCursorSize)
 
-                } else if (this.currentLevel == 2) {
-                    //this.distance = 250
-                    this.levelY = game.levelGroup3.y
+                } else if (currentLevel == 2) {
+                    //distance = 250
+                    levelY = game.levelGroup3.y
 
                     game.physics.p2.enable(game.worldManager.puddle)
                     game.worldManager.puddle.body.kinematic = true
@@ -3247,15 +3317,15 @@ var Game = (function () {
                     game.worldManager.destroyObstacleBounds()
                     game.physics.p2.enable(game.worldManager.puddle)
                     game.worldManager.puddle.body.kinematic = true
-                    //cursor.body.setCircle(this.smallCursorSize)
+                    //cursor.body.setCircle(smallCursorSize)
                 }
 
-                if (this.levelY > -1 && !this.canCatch) {
-                    if (this.currentLevel < 3) this.currentLevel++
+                if (levelY > -1 && !canCatch) {
+                    if (currentLevel < 3) currentLevel++
                     else return
 
                     game.worldManager.destroyStupidAnimals()
-                    this.canCatch = true
+                    canCatch = true
 
                     game.time.events.remove(worldInterval)
 
@@ -3289,35 +3359,35 @@ var Game = (function () {
 
                 //this.checkAnimalStuck(animal)
 
-                if (this.canCatch) {
+                if (canCatch) {
 
-                    // changing animal this.speed and direction when they are near farm
-                    if (this.currentLevel > 1) this.speed = this.fastSpeed
-                    animal.body.moveForward(this.speed)
+                    // changing animal speed and direction when they are near farm
+                    if (currentLevel > 1) speed = fastSpeed
+                    animal.body.moveForward(speed)
 
                     var endAngle = Math.round(Math.atan2(animal.body.y - game.worldManager.farmY, animal.body.x - game.worldManager.farmX) * 180 / Math.PI - 90)
                     var animalAngle = animal.body.angle
 
-                    this.distance = Math.sqrt(Math.pow(game.worldManager.farmX - animal.body.x, 2) + Math.pow(game.worldManager.farmY - animal.body.y, 2))
+                    distance = Math.sqrt(Math.pow(game.worldManager.farmX - animal.body.x, 2) + Math.pow(game.worldManager.farmY - animal.body.y, 2))
 
-                    if (this.distance < this.farmDistance) {
-                        if (config.isLandscape) animal.body.moveForward(this.animalAcceleration / this.distance)
-                        else animal.body.moveForward(this.animalAcceleration / this.distance)
+                    if (distance < farmDistance) {
+                        if (config.isLandscape) animal.body.moveForward(animalAcceleration / distance)
+                        else animal.body.moveForward(animalAcceleration / distance)
                     }
 
                     if (animalAngle > endAngle) animal.body.rotateLeft(50)
                     else animal.body.rotateRight(50)
 
-                    // changing animal this.speed and direction when they are near cursor
+                    // changing animal speed and direction when they are near cursor
                     if (game.input.activePointer.leftButton.isDown || game.input.pointer1.isDown) this.changeAnimalDirection(animal)
 
                     // making animals transparent when the move closer to the farm
-                    if (this.distance < this.transparancyDistance) animal.alpha = this.distance / this.transparancyDistance
+                    if (distance < transparancyDistance) animal.alpha = distance / transparancyDistance
                     else animal.alpha = 1
 
                     // destroying animals when they are in farm
-                    // this.distance < this.farmDistance is usefull only in landscape mode to prevent animals catching when user pushes them to the top left or right corners
-                    if (animal.y < catchPoint && this.distance < this.farmDistance) {
+                    // distance < farmDistance is usefull only in landscape mode to prevent animals catching when user pushes them to the top left or right corners
+                    if (animal.y < catchPoint && distance < farmDistance) {
                         ANIMALS[i].destroy()
                         ANIMALS.splice(i, 1)
 
@@ -3328,8 +3398,8 @@ var Game = (function () {
                     }
 
                     if (ANIMALS.length === 0) {
-                        this.allInHouse = true
-                        this.canCatch = false
+                        allInHouse = true
+                        canCatch = false
                     }
                 }
             }
@@ -3339,8 +3409,8 @@ var Game = (function () {
             }
 
             function catchIdle() {
-                this.woolUnits += this.woolQuantityNumber
-                game.worldManager.woolUnitsText.setText(this.woolUnits)
+                woolUnits += woolQuantityNumber
+                game.worldManager.woolUnitsText.setText(woolUnits)
             }
         },
 
@@ -3373,9 +3443,9 @@ var Game = (function () {
         },
 
         changeAnimalDirection: function (animal) {
-            this.distancePointer = Math.sqrt(Math.pow(animal.body.x - cursor.x, 2) + Math.pow(animal.body.y - cursor.y, 2))
+            distancePointer = Math.sqrt(Math.pow(animal.body.x - cursor.x, 2) + Math.pow(animal.body.y - cursor.y, 2))
 
-            if (this.distancePointer < this.cursorDistance) {
+            if (distancePointer < cursorDistance) {
                 var currentAngle = Math.round(animal.body.angle)
                 var endAngle = Math.round(Math.atan2(cursor.y - animal.body.y, cursor.x - animal.body.x) * 180 / Math.PI - 90)
 
@@ -3392,13 +3462,13 @@ var Game = (function () {
                     }
                 } else {
                     animal.body.setZeroRotation()
-                    animal.body.moveForward(this.animalAcceleration / this.distancePointer)
+                    animal.body.moveForward(animalAcceleration / distancePointer)
                 }
             }
         },
 
         animalRush: function () {
-            if (this.currentLevel == 3 && !game.uiManager.playableFinished) {
+            if (currentLevel == 3 && !game.uiManager.playableFinished) {
                 game.uiManager.showLastScreen()
                 game.uiManager.playableFinished = true
             }
@@ -3406,7 +3476,7 @@ var Game = (function () {
         },
 
         moveToNextLevel: function () {
-            if (this.currentLevel == 3) return
+            if (currentLevel == 3) return
 
             worldInterval = game.time.events.loop(15, () => {
 
@@ -3430,23 +3500,23 @@ var Game = (function () {
 
         // Is used only in VARIATION_MECHANIC "B"
         checkTruckPosition: function () {
-            if ((game.worldManager.truck.x > game.world.centerX && game.worldManager.truck.x < game.width - 400 * GLOBAL_SCALE) && this.canCollectWool) {
+            if ((game.worldManager.truck.x > game.world.centerX && game.worldManager.truck.x < game.width - 400 * GLOBAL_SCALE) && canCollectWool) {
                 game.worldManager.woolUnitsText.setText("0")
-                this.woolOnTruck = this.woolUnits
-                this.woolUnits = 0
+                woolOnTruck = woolUnits
+                woolUnits = 0
 
-                this.canCollectWool = false
-                this.canCollectMoney = true
+                canCollectWool = false
+                canCollectMoney = true
             }
 
-            if (game.worldManager.truck.x > game.width - 400 * GLOBAL_SCALE && this.canCollectMoney) {
-                this.canCollectWool = true
-                this.canCollectMoney = false
+            if (game.worldManager.truck.x > game.width - 400 * GLOBAL_SCALE && canCollectMoney) {
+                canCollectWool = true
+                canCollectMoney = false
 
-                this.money += this.woolOnTruck / 5 * this.woolValueNumber
-                if (this.money > 5000) this.money = 5000
+                money += woolOnTruck / 5 * woolValueNumber
+                if (money > 5000) money = 5000
 
-                if (this.woolOnTruck != 0) {
+                if (woolOnTruck != 0) {
                     this.truckMoneyText = game.add.text(game.worldManager.truck.x, game.worldManager.truck.y, '0', { align: 'center' })
                     this.truckMoneyText.anchor.set(0.5)
                     this.truckMoneyText.font = 'Arial'
@@ -3454,7 +3524,7 @@ var Game = (function () {
                     this.truckMoneyText.scale.set(1 * GLOBAL_SCALE)
                     this.truckMoneyText.fill = '#ffffff'
 
-                    this.truckMoneyText.setText("+" + this.woolOnTruck / 5 * this.woolValueNumber + "$")
+                    this.truckMoneyText.setText("+" + woolOnTruck / 5 * woolValueNumber + "$")
 
                     game.add.tween(this.truckMoneyText).to({
                         y: -100 * GLOBAL_SCALE
@@ -3466,7 +3536,7 @@ var Game = (function () {
                     }, 200, "Linear", true)
                 }
 
-                this.woolOnTruck = 0
+                woolOnTruck = 0
                 game.uiManager.increaseProgressIdle()
             }
         }
