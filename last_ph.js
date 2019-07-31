@@ -3120,59 +3120,9 @@ var Boot = (function () {
 })();
 
 
-// var cursor
-// var cursors
-// var this.mediumCursorSize = 0
-// var this.smallCursorSize = 0
-
-// var fenceBounds
-// var this.canCatch = true
-// var worldInterval
-// var this.currentLevel = 1
-
-// var this.distancePointer = 0
-// var this.speed = 0
-// var this.fastSpeed = 0
-// var this.farmDistance = 0
-// var this.cursorDistance = 0
-// var this.transparancyDistance = 0
-// var this.animalAcceleration = 0
-// var this.animalAccelerationLand = 0
-
-// var this.levelY = 0
-
-// var this.money = 0
-// var this.maxMoney = 5000
-
-// var this.upgradeCostArray = [50, 100, 200, 300, 500, 800, 1300, 2100, 3400, 5000]
-// var this.spawnRateCostIndex = 0
-// var this.woolValueCostIndex = 0
-// var this.woolQuantityCostIndex = 0
-// var this.bigSheepCostIndex = 0
-// var this.trucksSpeedCostIndex = 0
-
-// var this.spawnRateNumber = 50
-// var this.woolValueNumber = 10
-// var this.woolQuantityNumber = 25
-// var this.bigSheepNumber = 0.7
-// var this.trucksSpeedNumber = 5000
-// var this.woolUnits = 0
-// var this.woolOnTruck = 0
-
-// var this.canCollectMoney = true
-// var this.canCollectWool = true
-
-// var this.stop = false
-// var this.radius = 0
-// var this.angleDeg = 0
-// var this.canCollide = true
-// var this.xRing = 0
-// var this.yRing = 0
-// var this.xCenter = 0
-// var this.yCenter = 0
-// var this.angleRad = 0
-
-// var this.stepCounter = 0
+var cursor
+var cursors
+var worldInterval
 
 
 var Game = (function () {
