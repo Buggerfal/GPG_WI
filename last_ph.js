@@ -3013,7 +3013,7 @@ var LevelManager = (function () {
             var mult = GLOBAL_SCALE * 2.7
             var mult2 = GLOBAL_SCALE * 5.4
 
-            if (state.currentLevel == 1) {
+            if (game.currentLevel == 1) {
 
                 game.levelGroup1.y = 0
                 game.levelGroup2.y = -1600 * mult
@@ -3027,7 +3027,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = -1600 * mult
                 game.backgroundGroup3L.y = -1600 * mult2
 
-            } else if (state.currentLevel == 2) {
+            } else if (game.currentLevel == 2) {
 
                 game.levelGroup1.y = 1600 * mult
                 game.levelGroup2.y = 0
@@ -3041,7 +3041,7 @@ var LevelManager = (function () {
                 game.backgroundGroup2L.y = 0
                 game.backgroundGroup3L.y = -1600 * mult
 
-            } else if (state.currentLevel == 3) {
+            } else if (game.currentLevel == 3) {
 
                 game.levelGroup1.y = 1600 * mult2
                 game.levelGroup2.y = 1600 * mult
@@ -3132,7 +3132,16 @@ var Game = (function () {
     };
     state.prototype = {
         init: function () {
-            
+        
+            this.isInited = false;
+            (config.mainState = this).stage.backgroundColor = "#1F1F1F";
+            game.input.maxPointers = 1;
+        },
+        preload: function () {
+            // body...
+        },
+
+        create: function () {
             this.mediumCursorSize = 0
             this.smallCursorSize = 0
 
@@ -3171,16 +3180,7 @@ var Game = (function () {
 
             this.canCollectMoney = true
             this.canCollectWool = true
-
-            this.isInited = false;
-            (config.mainState = this).stage.backgroundColor = "#1F1F1F";
-            game.input.maxPointers = 1;
-        },
-        preload: function () {
-            // body...
-        },
-
-        create: function () {
+            
             centerX = game.width / 2
             centerY = game.height / 2
 
