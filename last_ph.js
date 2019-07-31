@@ -3059,7 +3059,7 @@ var LevelManager = (function () {
             mediumCursorSize = 400 * GLOBAL_SCALE
             smallCursorSize = 30 * GLOBAL_SCALE
 
-            distance = 350
+            game.this.distance = 350
             speed = 50 * GLOBAL_SCALE
             fastSpeed = 200 * GLOBAL_SCALE
             config.isLandscape ? farmDistance = 280 * GLOBAL_SCALE : farmDistance = 800 * GLOBAL_SCALE
@@ -3126,13 +3126,10 @@ var mediumCursorSize = 0
 var smallCursorSize = 0
 
 var fenceBounds
-var allInHouse = false
 var canCatch = true
-var level2BodyDestroyed = false
 var worldInterval
 var currentLevel = 1
 
-var distance = 350
 var distancePointer = 0
 var speed = 0
 var fastSpeed = 0
@@ -3189,12 +3186,11 @@ var Game = (function () {
             mediumCursorSize = 0
             smallCursorSize = 0
 
-            allInHouse = false
+            this.allInHouse = false
             canCatch = true
-            level2BodyDestroyed = false
             currentLevel = 1
 
-            distance = 350
+            this.distance = 350
             distancePointer = 0
             speed = 0
             fastSpeed = 0
@@ -3270,7 +3266,7 @@ var Game = (function () {
             this.moveCursor()
             this.catchAnimals()
 
-            if (allInHouse) {
+            if (this.allInHouse) {
 
                 if (GPP_OPTION.VARIATION_MECHANIC != "B") {
                     game.uiManager.setZeroProgress()
@@ -3288,7 +3284,7 @@ var Game = (function () {
                     bigSheepCostIndex = 0
                     bigSheepNumber = GLOBAL_SCALE * 2
                 }
-                allInHouse = false
+                this.allInHouse = false
             }
 
             if (GPP_OPTION.VARIATION_MECHANIC == "B") this.checkTruckPosition()
@@ -3299,13 +3295,13 @@ var Game = (function () {
             if (!canCatch && GPP_OPTION.VARIATION_MECHANIC != "B") {
 
                 if (currentLevel == 1) {
-                    //distance = 300
+                    //this.distance = 300
                     levelY = game.levelGroup2.y
                     game.worldManager.createObstacleBounds()
                     cursor.body.setCircle(mediumCursorSize)
 
                 } else if (currentLevel == 2) {
-                    //distance = 250
+                    //this.distance = 250
                     levelY = game.levelGroup3.y
 
                     game.physics.p2.enable(game.worldManager.puddle)
@@ -3365,11 +3361,11 @@ var Game = (function () {
                     var endAngle = Math.round(Math.atan2(animal.body.y - game.worldManager.farmY, animal.body.x - game.worldManager.farmX) * 180 / Math.PI - 90)
                     var animalAngle = animal.body.angle
 
-                    distance = Math.sqrt(Math.pow(game.worldManager.farmX - animal.body.x, 2) + Math.pow(game.worldManager.farmY - animal.body.y, 2))
+                    this.distance = Math.sqrt(Math.pow(game.worldManager.farmX - animal.body.x, 2) + Math.pow(game.worldManager.farmY - animal.body.y, 2))
 
-                    if (distance < farmDistance) {
-                        if (config.isLandscape) animal.body.moveForward(animalAcceleration / distance)
-                        else animal.body.moveForward(animalAcceleration / distance)
+                    if (this.distance < farmDistance) {
+                        if (config.isLandscape) animal.body.moveForward(animalAcceleration / this.distance)
+                        else animal.body.moveForward(animalAcceleration / this.distance)
                     }
 
                     if (animalAngle > endAngle) animal.body.rotateLeft(50)
@@ -3379,12 +3375,12 @@ var Game = (function () {
                     if (game.input.activePointer.leftButton.isDown || game.input.pointer1.isDown) this.changeAnimalDirection(animal)
 
                     // making animals transparent when the move closer to the farm
-                    if (distance < transparancyDistance) animal.alpha = distance / transparancyDistance
+                    if (this.distance < transparancyDistance) animal.alpha = this.distance / transparancyDistance
                     else animal.alpha = 1
 
                     // destroying animals when they are in farm
-                    // distance < farmDistance is usefull only in landscape mode to prevent animals catching when user pushes them to the top left or right corners
-                    if (animal.y < catchPoint && distance < farmDistance) {
+                    // this.distance < farmDistance is usefull only in landscape mode to prevent animals catching when user pushes them to the top left or right corners
+                    if (animal.y < catchPoint && this.distance < farmDistance) {
                         ANIMALS[i].destroy()
                         ANIMALS.splice(i, 1)
 
@@ -3395,7 +3391,7 @@ var Game = (function () {
                     }
 
                     if (ANIMALS.length === 0) {
-                        allInHouse = true
+                        this.allInHouse = true
                         canCatch = false
                     }
                 }
