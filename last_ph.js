@@ -3059,7 +3059,7 @@ var LevelManager = (function () {
             mediumCursorSize = 400 * GLOBAL_SCALE
             smallCursorSize = 30 * GLOBAL_SCALE
 
-            game.this.distance = 350
+            game.distance = 350
             speed = 50 * GLOBAL_SCALE
             fastSpeed = 200 * GLOBAL_SCALE
             config.isLandscape ? farmDistance = 280 * GLOBAL_SCALE : farmDistance = 800 * GLOBAL_SCALE
