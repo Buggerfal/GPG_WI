@@ -1322,10 +1322,9 @@ var UiManager = (function () {
         },
 
         adClick: function () {
-            ExchangeManager.callFinishedPopup()
-            setTimeout(function () {
-                ExchangeManager.CTAClicked()
-            }, 10)
+            setTimeout(function() {
+                ExchangeManager.installPlayableClicked()
+            }, ExchangeManager.callFinishedPopup())
         },
 
         onResize: function () {
