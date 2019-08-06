@@ -353,14 +353,14 @@ var utils = (function() {
 var ExchangeManager = (function() {
     var clicked_install_allready = false
     var exchangeLib = {
-        gameIndexInitDelay: GPP_NETWORK == "ironsource" ? 500 : 10,
+        gameIndexInitDelay: 10,
         installPlayableClicked: function() {
             if (clicked_install_allready)
                 return
             clicked_install_allready = true
             setTimeout(function() {
                 clicked_install_allready = false
-            }, 100)
+            }, 500)
             if ("ironsource" == GPP_NETWORK) {
                 if (typeof mraid !== 'undefined' || window.mraid) {
                     mraid.openStoreUrl()
@@ -368,15 +368,16 @@ var ExchangeManager = (function() {
                     dapi.openStoreUrl();
                 }
             } else {
-                "google" == GPP_NETWORK ? ExitApi.exit() : "mintegral" == GPP_NETWORK ? window.install() : "_blank" == GPP_NETWORK ? window.open(GPP_DESTINATION_URL, '_blank') : "preview" == GPP_NETWORK ? window.open(GPP_DESTINATION_URL, "_parent") : "facebook" == GPP_NETWORK ? FbPlayableAd.onCTAClick() : "vungle" == GPP_NETWORK ? callSDK("download") : "unity" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "applovin" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "appreciate" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "adcolony" == GPP_NETWORK ? mraid.openStore(GPP_DESTINATION_URL) : "tapjoy" == GPP_NETWORK ? window.TJ_API && window.TJ_API.click() : "ironsource" == GPP_NETWORK ? mraid.openStoreUrl() : alert("OK: " + GPP_DESTINATION_URL)
+                "google" == GPP_NETWORK ? ExitApi.exit() : "mintegral" == GPP_NETWORK ? window.install() : "_blank" == GPP_NETWORK ? window.open(GPP_DESTINATION_URL, '_blank') : "preview" == GPP_NETWORK ? window.open(GPP_DESTINATION_URL, "_parent") : "facebook" == GPP_NETWORK ? FbPlayableAd.onCTAClick() : "vungle" == GPP_NETWORK ? callSDK("download") : "unity" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "applovin" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "appreciate" == GPP_NETWORK ? mraid.open(GPP_DESTINATION_URL) : "adcolony" == GPP_NETWORK ? mraid.openStore(GPP_DESTINATION_URL) : "tapjoy" == GPP_NETWORK ? window.TJ_API && window.TJ_API.click() : "ironsource" == GPP_NETWORK ? mraid.openStoreUrl() : alert("DONE: " + GPP_DESTINATION_URL)
                 // vungle can be - parent.postMessage('download','*')
             }
-        },
+        }, 
         callFinishedPopup: function() {
             if ("tapjoy" == GPP_NETWORK) {
                 try {
                     (window.TJ_API && window.TJ_API.objectiveComplete());
-                    window.TJ_API && window.TJ_API.playableFinished()
+                    (window.TJ_API && window.TJ_API.playableFinished());
+                    (window.TJ_API && window.TJ_API.gameplayFinished());
                 } catch (e) {
                     var t = "Could not skip ad! | " + e;
                     console.warn(t)
@@ -401,17 +402,17 @@ var ExchangeManager = (function() {
         },
         adDapiVisibleCallback: function() {
             if (dapi.isViewable()) {
-                dapi.removeEventListener("viewableChange", exchangeLib.adDapiVisibleCallback);
+                dapi.removeEventListener("viewableChange", exchangeLib.adDapiVisibleCallback); 
                 setTimeout(function() {
                     dapi.addEventListener("audioVolumeChange", exchangeLib.audioVolumeChangeCallback);
                     GameIndex.init();
                 }, exchangeLib.gameIndexInitDelay)
             }
         },
-        onDapiReadyCallback: function() {
+        onDapiReadyCallback: function(){
             dapi.removeEventListener("ready", exchangeLib.onDapiReadyCallback);
             let isAudioEnabled = !!dapi.getAudioVolume();
-            if (dapi.isViewable()) {
+            if(dapi.isViewable()){
                 setTimeout(function() {
                     dapi.addEventListener("audioVolumeChange", exchangeLib.audioVolumeChangeCallback);
                     GameIndex.init();
@@ -421,6 +422,7 @@ var ExchangeManager = (function() {
             }
         },
         initializeNetworkRules: function() {
+            this.gameIndexInitDelay = (GPP_NETWORK == "ironsource" ? 500 : 10)
             document.title = GPP_TITLE
             if ("mintegral" == GPP_NETWORK) {
                 window.gameStart = function() {
@@ -438,7 +440,7 @@ var ExchangeManager = (function() {
                     this.checkViewable();
                 }
             } else if (typeof dapi !== 'undefined' || window.dapi) {
-                (dapi.isReady()) ? this.onDapiReadyCallback(): dapi.addEventListener("ready", this.onDapiReadyCallback);
+                (dapi.isReady()) ? this.onDapiReadyCallback() : dapi.addEventListener("ready", this.onDapiReadyCallback); 
             } else if ("google" == GPP_NETWORK) {
                 var scriptTag = document.createElement('script');
                 scriptTag.type = 'text/javascript';
@@ -461,7 +463,10 @@ var ExchangeManager = (function() {
             }
 
             if ("tapjoy" == GPP_NETWORK) {
-                (window.TJ_API && window.TJ_API.setPlayableBuild(GPP_VERSION));
+                (window.TJ_API && window.TJ_API.setPlayableBuild( GPP_VERSION ));
+                window.onerror = function() {
+                  (window.TJ_API && window.TJ_API.error( "Failed to load important assets" ));
+                }
             } else {
 
             }
@@ -502,7 +507,7 @@ var ExchangeManager = (function() {
             } else if ("adcolony" == GPP_NETWORK) {
                 if (Phaser.Device.iOS) {
                     mraid.preloadStore(GPP_DESTINATION_URL)
-                }
+                } 
             }
         }
     }
